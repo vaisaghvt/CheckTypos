@@ -1,0 +1,4 @@
+CheckTypos
+==========
+
+TypoChecker Plugin
