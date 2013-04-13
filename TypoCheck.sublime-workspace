@@ -1,0 +1,662 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"para",
+				"paraSplitString"
+			],
+			[
+				"sorte",
+				"listOfSortedInputWords"
+			],
+			[
+				"rand",
+				"randint"
+			],
+			[
+				"ingre",
+				"ingredient"
+			],
+			[
+				"ArrayL",
+				"ArrayList"
+			],
+			[
+				"Pre",
+				"PreEvacuationBehavior"
+			],
+			[
+				"Convert",
+				"convertToText"
+			],
+			[
+				"count",
+				"count"
+			],
+			[
+				"R",
+				"R IBP:Sensing"
+			],
+			[
+				"impleme",
+				"implementation"
+			],
+			[
+				"Rtab",
+				"R tab:BuildingBlocks"
+			],
+			[
+				"Rbre",
+				"R IBEVAC:EgressProgress"
+			],
+			[
+				"Rmul",
+				"R LiteratureReiew:MultidisciplinaryNature"
+			],
+			[
+				"Rfig",
+				"R fig:AgentArchitecture"
+			],
+			[
+				"Rsummar",
+				"R LiteratureReview:EngineeringSummary"
+			],
+			[
+				"Rpsy",
+				"R LiteratureReview:PsychSummary"
+			],
+			[
+				"ite",
+				"item"
+			],
+			[
+				"item",
+				"item: Itemize"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "import sublime, sublime_plugin\n\n\nclass ExampleCommand(sublime_plugin.TextCommand):\n    def run(self, edit):\n        regions = self.view.find_all(\".*\")\n        completeBuffer = ''.join(map(self.paraString, regions))\n        print(completeBuffer)\n\n    def paraString(self, region):\n        line= self.view.substr(region)\n        if line==\"\":\n            return \"\\n\"\n        else:\n            return line\n\n",
+			"file": "TypoCheck.py",
+			"file_size": 2103,
+			"file_write_time": 1365838884000000,
+			"settings":
+			{
+				"buffer_size": 403,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/vaisagh/RegReplace/testingFile",
+			"settings":
+			{
+				"buffer_size": 474,
+				"line_ending": "Unix",
+				"name": "testingFile"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 71.0,
+		"selected_items":
+		[
+			[
+				"remov",
+				"Reg Replace: Remove Duplicates"
+			],
+			[
+				"user ",
+				"Preferences: Settings - User"
+			],
+			[
+				"rege",
+				"Reg Replace: Clear Highlights"
+			],
+			[
+				"reg replace",
+				"Reg Replace: RegEx Input Sequencer"
+			],
+			[
+				"reg",
+				"Reg Replace: Clear Highlights"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				" install package",
+				"Package Control: Install Package"
+			],
+			[
+				" set Syntax lat",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"set",
+				"Set Syntax: TeX"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"disa",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"linter",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"dis",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"",
+				"Build: Build"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"en",
+				"Package Control: Enable Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"upg",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"tr",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"package dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"disb",
+				"Package Control: Disable Package"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"packages",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 240.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/trim_trailing_white_space.py",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/RegReplace/reg_replace.sublime-settings",
+		"/Users/vaisagh/RegReplace/reg_replace.py",
+		"/Users/vaisagh/RegReplace/reg_replace.sublime-settings",
+		"/Users/vaisagh/Repositories/PatternBasedMovement/Default",
+		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/text comparison in biased squared distance",
+		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/text comparison in biased cubed distance",
+		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/text comparison in biased power10 distance",
+		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/Text comparison unbiased",
+		"/Users/vaisagh/Dropbox/Me/FYP/SpatialPyramid/Example.m",
+		"/Users/vaisagh/IdeaProjects/gameAnalyzer/.idea/workspace.xml",
+		"/Users/vaisagh/Desktop/Web Site/DEPATHSS - Dynamic Egress PlAnning ThrougH Symbiotic Solution.html",
+		"/Users/vaisagh/Desktop/Web Site/HomePage.html",
+		"/Users/vaisagh/Dropbox/Assignment 2 organized/FE2/janani003/janani003_FE2_JANANI.py",
+		"/Users/vaisagh/Dropbox/Assignment 2 organized/FE1/n1204634l/fe1_karoline_jarneid.py",
+		"/Users/vaisagh/Downloads/assignment2_Soln.py",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/cx_Freeze/macdist.py",
+		"/Users/vaisagh/Dropbox/ProjectLauncher/projectlauncher/setup.py",
+		"/Users/vaisagh/Desktop/ProjectLauncher/projectlauncher/setup.py",
+		"/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/PyQt4/QtCore.so",
+		"/Users/vaisagh/Repositories/moplat/xml-resources/CrowdProperties/LatticeTestSettings.xml",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Blog post",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/extractPhrases.py",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Getch.py",
+		"/C/Users/vaisagh/Dropbox/ProjectLauncher/TerminalApp.py",
+		"/C/Users/vaisagh/Dropbox/lab materials/generateQuestions.py",
+		"/C/Users/vaisagh/Dropbox/ProjectLauncher/appLauncher.py",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/tagChecks.py",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/readPara.py",
+		"/Users/vaisagh/Dropbox/MistakeCorrectionScript/random.txt",
+		"/C/Users/vaisagh/Desktop/output/BCE1/czhang017/czhang017_attempt_2012-10-08-12-34-38.txt",
+		"/Users/vaisaghvt/Desktop/generateQuestions.py",
+		"/C/Users/vaisagh/Dropbox/MistakeCorrectionScript/patterns.py",
+		"/Users/vaisaghvt/Desktop/antigravity.py",
+		"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/readPara.py",
+		"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/patterns.py",
+		"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/extractPhrases.py",
+		"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/Blog post",
+		"/Users/vaisaghvt/Dropbox/LiteratureReview.tex",
+		"/Users/vaisaghvt/Desktop/random",
+		"/Users/vaisaghvt/Desktop/random-new.temp",
+		"/Users/vaisaghvt/Desktop/replacement.py",
+		"/Users/vaisaghvt/Desktop/random-new",
+		"/Users/vaisaghvt/Dropbox/My website/actual website/index.html",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/Introduction.tex",
+		"/Users/vaisaghvt/Documents/Abstract1",
+		"/Users/vaisaghvt/Documents/Abstract",
+		"/Users/vaisaghvt/Desktop/submission/AfterReviewModifications.txt",
+		"/Volumes/OpenJDK 7 (Mac OS",
+		"/Users/vaisaghvt/Downloads/vitae.tex",
+		"/Users/vaisaghvt/NetBeansProjects/CrowdSimulation/converToText.sh",
+		"/Users/vaisaghvt/NetBeansProjects/CrowdSimulation/Scenario1",
+		"/Users/vaisaghvt/NetBeansProjects/CrowdSimulation/Scenario2",
+		"/Users/vaisaghvt/NetBeansProjects/CrowdSimulation/Scenario3",
+		"/Users/vaisaghvt/NetBeansProjects/CrowdSimulation/Scenario4",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/ConclusionAndFutureWork.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/InfoBasedArchitecture.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/QE.bib",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/InfoBasedPerception.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/$ J{m}...The control sequence at the end of the top line",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/InfoBasedPerception.tex [44] [45] [46 <./figures/fig-AgentArchitecture.pdf>]Chapter 4.",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/TheRemainingModules.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/LiteratureReview.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/appendixa.tex",
+		"/Users/vaisaghvt/Dropbox/Tex/TOCS/Info based perception/IBP-TOCS.tex",
+		"/Users/vaisaghvt/test/process.sh",
+		"/Users/vaisaghvt/test/rumba",
+		"/Users/vaisaghvt/test/replaceAndSort.sh",
+		"/C/Users/vaisagh/Dropbox/Tex/QE Report/ConclusionAndFutureWork.tex",
+		"/C/Users/vaisagh/Dropbox/Tex/QE Report/QE.bib",
+		"/C/Users/vaisagh/workspace/evacengine/evac_generic_office_building.xml",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/acknow.tex",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/IEEEtran.cls",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.aux",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.bbl",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.blg",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.fdb_latexmk",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.log",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/figures/ntulogo.eps",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.toc",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/0_QE_Report.lof",
+		"/Users/vaisaghvt/Dropbox/Tex/QE Report/Introduction.aux",
+		"/Users/vaisaghvt/Dropbox/Papers2/Library.papers2/Database.papersdb"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"*.java",
+			"*.tex",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"line",
+			"equation",
+			"enumerate",
+			"equation",
+			"some",
+			"Following",
+			"a;dkdkdkdkdkkd",
+			"dkdkdkdkdkkd",
+			"enumerate",
+			"FloorMaps",
+			"<<<<<",
+			"<<<<",
+			"\n    ",
+			"<<<<<",
+			"(<<<<<<< HEAD|=======|>>>>>>> origin/master)",
+			"to",
+			">>>>>>",
+			"connectingArea>116",
+			"<connectingArea>117",
+			"117",
+			"MB3",
+			"<<<<",
+			"sleep",
+			"file",
+			"QTimer",
+			"main",
+			"defaultdict",
+			"defaultDict",
+			"dealWithIt",
+			"removeREpeated",
+			"removeREpeater",
+			"para\\[0\\]",
+			"(?i)([ ]+||^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$|)",
+			"(([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\3([ \\.,;]+|$))|(([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\6([ \\.,;]+|$))",
+			"[([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)]",
+			"{([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)}",
+			"[([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)",
+			"[([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)]",
+			"[(|[ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)]|[([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$|)]",
+			"([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)",
+			"a_\\{r\\}",
+			"r_{a}",
+			"a_{r}",
+			"ward",
+			" berg",
+			"berg",
+			"Helbing",
+			"green",
+			"red",
+			"Sect\\.",
+			"mhl",
+			"DatabaseHandler",
+			"FROM",
+			"t0_025",
+			"initial",
+			"anooj",
+			"aiyappa",
+			"bhargav",
+			"sriram",
+			"THU",
+			"2.3",
+			"depathss",
+			" we ",
+			" I ",
+			"author",
+			" we ",
+			"author",
+			"author ",
+			"DEPATHSS",
+			" author ",
+			"author",
+			"ReviewPerception",
+			"perceptionDesc",
+			"fig-",
+			"\\\\ref",
+			"ref",
+			"section",
+			"figure",
+			"chapter",
+			"figure",
+			"section",
+			"chapter",
+			"section",
+			"figure",
+			"\\{simulation\\},",
+			"SIMULATION",
+			"Klein:2010",
+			"Klein",
+			"Aydt",
+			"heiko",
+			"Helbing",
+			" :",
+			"([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)",
+			" ( )+",
+			"([\\.] [a-z])|^[a-z]",
+			"[\\.,;][a-zA-Z]",
+			"et al[^\\.]",
+			"[\\.,;]([^ $\\n])",
+			"[\\.,;]([^ $])",
+			"[\\.,;]([^ ]|[^$])",
+			"[\\.,;][^ ]",
+			"[\\.,;]",
+			"[\\.,;][[~\\.~,~;]]",
+			"[\\.,;].",
+			"\\\\(sub)+section",
+			"\\\\section|\\\\chapter",
+			"([^S]|s)ection~\\\\ref",
+			"([^C]|c)hapter~\\\\ref",
+			"[^~]\\\\cite|[~]\\\\ref",
+			"[^~]\\\\cite|[^~]\\\\ref",
+			"[^~]cite",
+			"name",
+			"[~]\\cite|[^~]\\ref",
+			"[^~]\\cite|[^~]\\ref",
+			"area",
+			"fight",
+			"United Kingdom",
+			"United States",
+			"cultural",
+			"2pt",
+			"image",
+			"sense",
+			"shift\\+w",
+			"it's",
+			"it's ",
+			"Event Identification module",
+			"Agent Description module",
+			"under it"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"Section",
+			"Anooj",
+			"Aiyappa",
+			"Bhargav",
+			"Sriram",
+			"THUR",
+			"multidisciplinary",
+			"et al.",
+			":",
+			"~(",
+			".~(",
+			"Having modeled the human perception system through the Information Based Perception model, the next problem to be tackled is to model how people react to and process cues present in the filtered percepts received by their knowledge module. The processing of information by a human depends on the agents intrinsic characteristics, his knowledge of the environment and his knowledge of the events that have occurred in the environment. These factors influence the agent's stress and perceived time constraint which, in turn, influences the cues that he perceives and the information he receives. This process of serial information processing determines the movement and behavior of a person during an emergency evacuation. ",
+			"i.e.\\ ",
+			"i.e.\\",
+			" ",
+			"multi-layer",
+			"pre-evacuation",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "TypoCheck.py",
+					"settings":
+					{
+						"buffer_size": 403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/vaisagh/RegReplace/testingFile",
+					"settings":
+					{
+						"buffer_size": 474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								460,
+								460
+							]
+						],
+						"settings":
+						{
+							"auto_name": "testingFile",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 121.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"qe.bib",
+				"QE.bib"
+			],
+			[
+				"infor",
+				"InfoBasedArchitecture.tex"
+			],
+			[
+				"liter",
+				"LiteratureReview.tex"
+			],
+			[
+				"conclu",
+				"ConclusionAndFutureWork.tex"
+			],
+			[
+				"0",
+				"0_QE_Report.tex"
+			],
+			[
+				"inf",
+				"InfoBasedArchitecture.tex"
+			],
+			[
+				"intr",
+				"Introduction.tex"
+			],
+			[
+				"int",
+				"Introduction.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 90.0,
+	"status_bar_visible": true
+}
