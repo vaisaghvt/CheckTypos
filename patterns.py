@@ -88,17 +88,17 @@ patterns = [
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
     {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',    "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
     {"regex":r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',    "description":'TITLE CASE FOR SECTIONS AND CHAPTERS',  "tags":'c',     "function":convertToTitleCase},
-    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'taceh',     "function":removeSpaceBeforePunctuation},
-    {"regex":r'([\.,;:])([\w])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'taceh',     "function":addSpaceAfterPunctuation},
+    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'aceh',     "function":removeSpaceBeforePunctuation},
+    {"regex":r'(?<!\d)([\.,;:])([\w])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'aceh',     "function":addSpaceAfterPunctuation},
     {"regex":r'((?<=(\.\s))|(?<=(^\s))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
-                                                                                    "tags":'tace',      "function":capitalizeFirst},
+                                                                                    "tags":'ace',      "function":capitalizeFirst},
     {"regex":r'(\s*)(?<!~)((\\cite)|(\\ref))',   "description":'TILDE MARK NEEDED BEFORE CITE / REF',
                                                                                     "tags":'ace',       "function":addTildeBeforeCite},
     {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
     {"regex":r'(section)(~\\ref)',          "description": 'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'tcefb',     "function":removeExtraSpaces},
-    {"regex":r'(?i)((?<=[ ])|(?<=^))(\w[\w ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
-                                        "description":'REPEATED PHRASE',            "tags":'i',         "function":removeRepeatedPhrase},
+    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cefb',     "function":removeExtraSpaces},
+    {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
+                                        "description":'REPEATED PHRASE',            "tags":'ic',         "function":removeRepeatedPhrase},
     ]
 # change too many spaces to be more specific
 # |([A-Z](.*?)[A-Z](.*?))

@@ -1,37 +1,39 @@
-testingFile
+TestingFile
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia 1 (1.5 deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur\cite(blah) adipisicing \ref{blah} elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,    \cite
+Lorem ipsum dolor sit amet, consectetur~\cite(blah) adipisicing~\ref{blah} elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,~\cite
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.excepteur sint occaecat cupidatat non
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-\section{this is not capital case}
+% test test
 
-\chapter{what}
+\section{This Is Not Capital Case}
 
-\chapter{And this}
+\chapter{What}
+
+\chapter{And This}
 
 \chapter{This}
 
 \subsection{Test this}
-\subsection{and this and}
+\subsection{And this and}
 \subsection{Test}
-\subsection{and}
+\subsection{And}
 \subsubsection{Test this}
-\subsubsection{and this and}
+\subsubsection{And this and}
 \subsubsection{Test}
-\subsubsection{and}
-\subparagraph{Test This}
-\subparagraph{and this and}
+\subsubsection{And}
+\subparagraph{Test this}
+\subparagraph{And this and}
 \paragraph{Test}
 
 
@@ -42,13 +44,14 @@ subsubsection{and}
 
 (?<=sub)+(?>=section)((|(.*) )[a-z].*)(?=\})
 
+test
 
-a s lorem lorem sadf    .
+a s lorem sadf.
 
-test test chapter~\ref{dsafd}, section~\ref{} Chapter~\ref{}
+test Chapter~\ref{dsafd}, Section~\ref{} Chapter~\ref{}
 
-test , test
+test,
 
-this is a phrase this is a phrase
+this is a phrase
 
 ((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*))|([A-Z].*[A-Z].*))(?=\})

@@ -27,19 +27,20 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.user_input_ready = False
 
         self.recalculateMatches()
-        # print(completeBuffer)
+        print(self.completeBuffer)
         dj = threading.Thread(target=self.processParagraph, args=())
         dj.start()
         # self.processParagraph([completeBuffer])
 
     def recalculateCompleteBuffer(self):
-        print("recalculating buffers")
+        # print("recalculating buffers")
         regions = self.view.find_all(".*")
-        self.completeBuffer = '\n'.join(map(self.paraString, regions))
+        self.completeBuffer = '\n'.join(map(self.view.substr, regions))
+
 
     def recalculateMatches(self):
         self.recalculateCompleteBuffer()
-        print("recalculating matches")
+        # print("recalculating matches")
         self.viewMatches = {}
         self.matchIterators = {}
         for pattern in patterns: # for each pattern
@@ -49,12 +50,8 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
             self.matchIterators[regexPattern] = regex.finditer(self.completeBuffer)
 
 
-    def paraString(self, region):
-        line= self.view.substr(region)
-        if line=="":
-            return "\n"
-        else:
-            return line
+
+
 
     def getUserInput(self):
         print("current suggested replacement"+self.currentReplacement)
@@ -83,7 +80,6 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
     def on_cancel(self):
         self.user_input_ready = True
         self.inputLock.release()
-        pass
 
 
     def input_is_ready(self):
@@ -93,7 +89,6 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.view.sel().clear()
         self.view.sel().add(self.currentMatchedRegionInView)
         self.view.show(self.currentMatchedRegionInView)
-        pass
 
     def processParagraph(self):
         problemsFound = False
@@ -120,7 +115,7 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                         # print(match)
 
                         self.currentMatchedRegionInView = self.viewMatches[regexPattern][count]
-                        sublime.set_timeout(self.changeSelection,0)
+
 
                         count= count+1
                         for option in pattern["tags"]:
@@ -132,6 +127,7 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                             flag = False
                             continue
                         problemsFound = True
+                        sublime.set_timeout(self.changeSelection,0)
                         # print 'Problem: ', pattern["description"]
                         #      # '; Para', index+1
                         print 'Phrase: ', extractPhrase(match, self.completeBuffer)

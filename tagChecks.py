@@ -1,11 +1,9 @@
-from extractPhrases import * 
-from urlparse import urlparse       
+from extractPhrases import *
+from urlparse import urlparse
 
 def checkPattern(option, match, line):
-    if option =='t':
-        # print 'checking tag'
-        return isInTag(extractPhrase(match, line))
-    elif option =='a':
+
+    if option =='a':
         # print 'checking acronym'
         return isAcronym(extractPhrase(match, line))
     elif option =='c':
@@ -36,20 +34,14 @@ def isInHyperLink(phrase):
 def isAcronym(phrase):
     '''Returns a true if the match is an acronym'''
 #    print "testing if", phrase, "is an acronym"
-    if(phrase.rfind('i.e.')!=-1 
-        or phrase.rfind('e.g.')!=-1 
+    if(phrase.rfind('i.e.')!=-1
+        or phrase.rfind('e.g.')!=-1
         or phrase.rfind('etc.')!=-1):
 #        print "returning true"
         return True
     else :
         return False
 
-def isInTag(phrase):
-    '''Returns a true if the match is any tag'''
-    if(phrase.rfind('\\')==0):
-        return True
-    else :
-        return False
 
 def isInCite(phrase):
     '''Returns a true if the match is in Cite'''
@@ -70,7 +62,7 @@ def inLineEquation(match, line):
             if line[i] == '$':
                 return True
     return False
-    
+
 def inEquationBody(match, line):
     # print 'checking equation', match.start()-1
     end= line[0:match.start()].rfind(r'\end{equation}')
@@ -82,7 +74,7 @@ def inEquationBody(match, line):
         # print '*******'
     beg=line[pos:match.start()].rfind(r'\begin{equation}')
     if(beg!=-1):
-        return True     
+        return True
     return False
 
 def isFigure(match, line):
@@ -95,7 +87,7 @@ def isFigure(match, line):
         # print '*******'
     beg=line[pos:match.start()].rfind(r'\begin{figure}')
     if(beg!=-1):
-        return True     
+        return True
     return False
 
 def isTable(match, line):
@@ -108,7 +100,7 @@ def isTable(match, line):
         # print '*******'
     beg=line[pos:match.start()].rfind(r'\begin{table}')
     if(beg!=-1):
-        return True     
+        return True
     return False
 
 def isEquation(match, line):
