@@ -32,10 +32,11 @@ def capitalizeFirst(match, para):
 
     if match.start() == 0:
         newPara = para[0].upper() + para[1:len(para)]
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == ' ':
-            newPara = para[0:i + 1] + para[i + 1].upper() + para[i
-                + 2:len(para)]
+    else:
+        for i in range(match.start(), match.end(), 1):
+            if para[i] == ' ':
+                newPara = para[0:i + 1] + para[i + 1].upper() + para[i
+                    + 2:len(para)]
     return newPara
 
 
@@ -175,15 +176,15 @@ patterns = [
     # r'\\section|\\chapter':["TITLE CASE FOR SECTIONS AND CHAPTERS", 'c', convertToTitleCase],
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
     {"regex":r' [\.,;:]',               "description":'SPACE BEFORE PUNCTUATION.',  "tags":'taceh',     "function":removeSpaceBeforePunctuation},
-    {"regex":r'[\.,;:][a-zA-Z]',        "description":'NO SPACE AFTER PUNCTUATION.',"tags":'taceh',     "function":addSpaceAfterPunctuation},
-    {"regex":r'([\.] [a-z])|^[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP.',
+    {"regex":r'[\.,;:][\w]',        "description":'NO SPACE AFTER PUNCTUATION.',"tags":'taceh',     "function":addSpaceAfterPunctuation},
+    {"regex":r'([\.]|^)\s+[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP.',
                                                                                     "tags":'tace',      "function":capitalizeFirst},
     {"regex":r'[^~]\\cite|[^~]\\ref',   "description":'TILDE MARK NEEDED BEFORE CITE',
                                                                                     "tags":'ace',       "function":addTildeBeforeCite},
     {"regex":r'chapter~\\ref',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":capitalizeChapter},
     {"regex":r'section~\\ref',          "description": 'CAPITALIZE S IN SECTION',   "tags":'c',         "function":capitalizeSection},
     {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'tcefb',     "function":removeExtraSpaces},
-    {"regex":r'(?i)([ ]+||^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\2([ \.,;]|$|)',
+    {"regex":r'(?i)([ ]+|^)(\w[\w ]*)[^\w\d]+\2([ \.,;]|$|)',
                                         "description":'REPEATED PHRASE',            "tags":'i',         "function":removeRepeatedPhrase},
     ]
 

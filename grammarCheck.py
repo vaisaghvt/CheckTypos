@@ -9,29 +9,40 @@ from tagChecks import *
 import sys
 
 
-def dealWithIt(match, para, replacementFunction):
+def dealWithIt(match, para, replacementFunction, TypoCheckCommand):
     """ Deals with a pattern match. Checks for replacement, displays it for user and asks what to do with
     it"""
 
     replacement = suggestReplacement(match, para, replacementFunction)
+
+
     while True:
-        print 'Suggested replacement:', replacement
-        print '(a)ccept suggestion | (i)gnore:',
-        option = gc.getch()
-        print option
-        if option == 'a':
-            return replacement, True
-        elif option == 'i':
+        TypoCheckCommand.getUserInput(replacement, on_done, on_change, on_cancel)
 
-        # elif option == 'e':
-        #     print "code to edit and write own correction here"
-        #     return getReplacement(match, para)
+        # print 'Suggested replacement:', replacement
+        # print '(a)ccept suggestion | (i)gnore:',
+        # print option
+        # if option == 'a':
+        #     return replacement, True
+        # elif option == 'i':
 
-            print 'ignored... '
-            return para, False
-        else:
-            print 'invalid choice'
+        # # elif option == 'e':
+        # #     print "code to edit and write own correction here"
+        # #     return getReplacement(match, para)
 
+        #     print 'ignored... '
+        return para, False
+        # else:
+        #     print 'invalid choice'
+
+def on_done(userInput):
+    print("Done:"+userInput)
+
+def on_change(userInput):
+    print("Change:"+userInput)
+
+def on_cancel():
+    pass
 
 def suggestReplacement(match, para, replacementFunction):
     """ Calls the replacement function with the right arguments"""
@@ -53,18 +64,31 @@ def saveChanges(group, fileName):
     os.rename(tempFileName, fileName)
 
 
-def processParagraph(paragraphs):
+def processParagraph(paragraphs, sublime):
     problemsFound = False
+
+
+
     for iteration in range(2):
-        for pattern in patterns:
+        for pattern in patterns: # for each pattern
+            regexPattern = pattern["regex"]
+            # print(regexPattern)
+            regex = re.compile(regexPattern)
+            viewMatches = sublime.view.find_all(regexPattern)
 
+            for viewMatch in viewMatches:
+                print(sublime.view.substr(sublime.view.word(viewMatch)))
             flag = False
-            for index, para in enumerate(paragraphs):
-                regex = re.compile(pattern["regex"])
-
+            for index, para in enumerate(paragraphs): # for each paragraph
                 while True:
                     replacementMade = False
-                    for match in regex.finditer(para):
+                    count=0
+                    for match in regex.finditer(para): # for each match in the paragraph
+                        matchedRegionInView = viewMatches[count]
+                        sublime.view.sel().clear()
+                        sublime.view.sel().add(matchedRegionInView)
+                        sublime.view.show(matchedRegionInView)
+                        count= count+1
                         for option in pattern["tags"]:
                             if checkPattern(option, match, para):
                                 # print 'flag true'
@@ -74,14 +98,15 @@ def processParagraph(paragraphs):
                             flag = False
                             continue
                         problemsFound = True
-                        print 'Problem: ', pattern["description"], \
-                            '; Para', index+1
-                        print 'Phrase: ', extractPhrase(match, para)
+                        # print 'Problem: ', pattern["description"]
+                        #      # '; Para', index+1
+                        # print 'Phrase: ', extractPhrase(match, para)
 
                         # print "context: ",para
+                        sublime.printDescription(pattern["description"])
 
-                        # paragraphs[index], replacementMade = dealWithIt(match,
-                        #         para, pattern["function"])
+                        paragraphs[index], replacementMade = dealWithIt(match,
+                                para, pattern["function"], sublime)
                         para = paragraphs[index]
                         print '**********************'
                         if replacementMade:

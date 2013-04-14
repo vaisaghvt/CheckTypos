@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"regex",
+				"regexPattern"
+			],
+			[
 				"para",
 				"paraSplitString"
 			],
@@ -80,13 +84,18 @@
 	"buffers":
 	[
 		{
-			"contents": "import sublime, sublime_plugin\n\n\nclass ExampleCommand(sublime_plugin.TextCommand):\n    def run(self, edit):\n        regions = self.view.find_all(\".*\")\n        completeBuffer = ''.join(map(self.paraString, regions))\n        print(completeBuffer)\n\n    def paraString(self, region):\n        line= self.view.substr(region)\n        if line==\"\":\n            return \"\\n\"\n        else:\n            return line\n\n",
 			"file": "TypoCheck.py",
-			"file_size": 2103,
-			"file_write_time": 1365838884000000,
 			"settings":
 			{
-				"buffer_size": 403,
+				"buffer_size": 851,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grammarCheck.py",
+			"settings":
+			{
+				"buffer_size": 4633,
 				"line_ending": "Unix"
 			}
 		},
@@ -94,18 +103,72 @@
 			"file": "/Users/vaisagh/RegReplace/testingFile",
 			"settings":
 			{
-				"buffer_size": 474,
+				"buffer_size": 476,
 				"line_ending": "Unix",
 				"name": "testingFile"
+			}
+		},
+		{
+			"file": "tagChecks.py",
+			"settings":
+			{
+				"buffer_size": 4313,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "patterns.py",
+			"settings":
+			{
+				"buffer_size": 7200,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "extractPhrases.py",
+			"settings":
+			{
+				"buffer_size": 1820,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 12 files for \"extractPhrase\" (case sensitive)\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/extractPhrases.py:\n    1  \n    2: def extractPhrase(match, line):\n    3      \"\"\"Returns the phrase which was matched. Rather than just the matched pattern, it returns\n    4      the complete phrase in which the match occured \"\"\"\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/grammarCheck.py:\n    5  import Getch as gc\n    6  from patterns import *\n    7: from extractPhrases import *\n    8  from tagChecks import *\n    9  import sys\n   ..\n   78                          print 'Problem: ', pattern[\"description\"], \\\n   79                              # '; Para', index+1\n   80:                         print 'Phrase: ', extractPhrase(match, para)\n   81  \n   82                          # print \"context: \",para\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/patterns.py:\n    1  from string import *\n    2: from extractPhrases import *\n    3  \n    4  \n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/tagChecks.py:\n    1: from extractPhrases import *\n    2  from urlparse import urlparse\n    3  \n    .\n    5      if option =='t':\n    6          # print 'checking tag'\n    7:         return isInTag(extractPhrase(match, line))\n    8      elif option =='a':\n    9          # print 'checking acronym'\n   10:         return isAcronym(extractPhrase(match, line))\n   11      elif option =='c':\n   12          # print 'checking comment'\n   ..\n   23          return isTable(match, line)\n   24      elif option =='h':\n   25:         return isInHyperLink(extractPhrase(match, line))\n   26  \n   27  def isInHyperLink(phrase):\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/TypoCheck.sublime-workspace:\n  260  		\"/Users/vaisagh/Repositories/moplat/xml-resources/CrowdProperties/LatticeTestSettings.xml\",\n  261  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Blog post\",\n  262: 		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  263  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Getch.py\",\n  264  		\"/C/Users/vaisagh/Dropbox/ProjectLauncher/TerminalApp.py\",\n  ...\n  274  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/readPara.py\",\n  275  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/patterns.py\",\n  276: 		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  277  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/Blog post\",\n  278  		\"/Users/vaisaghvt/Dropbox/LiteratureReview.tex\",\n\n10 matches across 5 files\n\n\nSearching 12 files for \"extractPhrase\" (case sensitive)\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/grammarCheck.py:\n    5  import Getch as gc\n    6  from patterns import *\n    7: from extractPhrases import *\n    8  from tagChecks import *\n    9  import sys\n   ..\n   78                          print 'Problem: ', pattern[\"description\"], \\\n   79                              # '; Para', index+1\n   80:                         print 'Phrase: ', extractPhrase(match, para)\n   81  \n   82                          # print \"context: \",para\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/patterns.py:\n    1  from string import *\n    2: from extractPhrases import *\n    3  \n    4  \n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/tagChecks.py:\n    1: from extractPhrases import *\n    2  from urlparse import urlparse\n    3  \n    .\n    5      if option =='t':\n    6          # print 'checking tag'\n    7:         return isInTag(extractPhrase(match, line))\n    8      elif option =='a':\n    9          # print 'checking acronym'\n   10:         return isAcronym(extractPhrase(match, line))\n   11      elif option =='c':\n   12          # print 'checking comment'\n   ..\n   23          return isTable(match, line)\n   24      elif option =='h':\n   25:         return isInHyperLink(extractPhrase(match, line))\n   26  \n   27  def isInHyperLink(phrase):\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/TypoCheck.sublime-workspace:\n  260  		\"/Users/vaisagh/Repositories/moplat/xml-resources/CrowdProperties/LatticeTestSettings.xml\",\n  261  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Blog post\",\n  262: 		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  263  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Getch.py\",\n  264  		\"/C/Users/vaisagh/Dropbox/ProjectLauncher/TerminalApp.py\",\n  ...\n  274  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/readPara.py\",\n  275  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/patterns.py\",\n  276: 		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  277  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/Blog post\",\n  278  		\"/Users/vaisaghvt/Dropbox/LiteratureReview.tex\",\n\n9 matches across 4 files\n\n\nSearching 12 files for \"extractPhrase\" (case sensitive)\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/grammarCheck.py:\n    5  import Getch as gc\n    6  from patterns import *\n    7: from extractPhrases import *\n    8  from tagChecks import *\n    9  import sys\n   ..\n   78                          print 'Problem: ', pattern[\"description\"], \\\n   79                              # '; Para', index+1\n   80:                         print 'Phrase: ', extractPhrase(match, para)\n   81  \n   82                          # print \"context: \",para\n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/patterns.py:\n    1  from string import *\n    2: from extractPhrases import *\n    3  \n    4  \n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/tagChecks.py:\n    1: from extractPhrases import *\n    2  from urlparse import urlparse\n    3  \n\n/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/TypoCheck.sublime-workspace:\n  260  		\"/Users/vaisagh/Repositories/moplat/xml-resources/CrowdProperties/LatticeTestSettings.xml\",\n  261  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Blog post\",\n  262: 		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  263  		\"/Users/vaisagh/Dropbox/MistakeCorrectionScript/Getch.py\",\n  264  		\"/C/Users/vaisagh/Dropbox/ProjectLauncher/TerminalApp.py\",\n  ...\n  274  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/readPara.py\",\n  275  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/patterns.py\",\n  276: 		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/extractPhrases.py\",\n  277  		\"/Users/vaisaghvt/Dropbox/MistakeCorrectionScript/Blog post\",\n  278  		\"/Users/vaisaghvt/Dropbox/LiteratureReview.tex\",\n\n6 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 6743,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/goto_line.py",
+			"settings":
+			{
+				"buffer_size": 950,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 71.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Create Package File"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
 			[
 				"remov",
 				"Reg Replace: Remove Duplicates"
@@ -163,10 +226,6 @@
 				"Build: Build"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"disable",
 				"SublimeLinter: Disable Linting"
 			],
@@ -219,11 +278,11 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 435.0
+		"width": 588.0
 	},
 	"console":
 	{
-		"height": 240.0
+		"height": 399.0
 	},
 	"distraction_free":
 	{
@@ -236,11 +295,19 @@
 	},
 	"file_history":
 	[
-		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/trim_trailing_white_space.py",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/Main.sublime-menu",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/grammarCheck.py",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/Default (OSX).sublime-keymap",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/vaisagh/RegReplace/Main.sublime-menu",
 		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/RegReplace/reg_replace.sublime-settings",
 		"/Users/vaisagh/RegReplace/reg_replace.py",
 		"/Users/vaisagh/RegReplace/reg_replace.sublime-settings",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/TypoChecker/Default (OSX).sublime-keymap  ",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/trim_trailing_white_space.py",
+		"/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/RegReplace/reg_replace.sublime-settings",
 		"/Users/vaisagh/Repositories/PatternBasedMovement/Default",
 		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/text comparison in biased squared distance",
 		"/Users/vaisagh/IdeaProjects/gameAnalyzer/SavedGraphs/heat maps/text comparison in biased cubed distance",
@@ -343,6 +410,38 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"view",
+			"done",
+			"input",
+			"userInput",
+			"([\\.]|^)\\s+[a-z]",
+			"([\\.]|^) [a-z]",
+			"([ ]+|^)(\\w[\\w ]*)[^\\w\\d]+\\2([ \\.,;]|$|)",
+			"([ ]+|)(\\w[\\w ]*)[^\\w\\d]+\\2([ \\.,;]|$|)",
+			"([ ]+)(\\w[\\w ]*)[^\\w\\d]+\\2([ \\.,;]|$|)",
+			"([ ]+||^)(\\w[\\w ]*)[^\\w\\d]+\\2([ \\.,;]|$|",
+			"(?i)([ ]+||^)(\\w[\\w ]*)[^\\w0-9]+\\2([ \\.,;]|$|",
+			"(?i)([ ]+||^)(\\w[\\w ]*)[^\\w\\d]+\\2([ \\.,;]|$|",
+			"print",
+			" [.,;:]",
+			" [\\.,;:]",
+			"r' [\\.,;:]'",
+			"line",
+			"phrase",
+			"    ",
+			"line",
+			"print",
+			"match.begin()-1",
+			"extractPhrase",
+			"matchRegion",
+			"match",
+			"start()",
+			"match.start()",
+			"start()",
+			"start",
+			"current",
+			"packages",
+			"fileName",
 			"line",
 			"equation",
 			"enumerate",
@@ -438,39 +537,7 @@
 			"([ ]+|^)([a-zA-Z][a-zA-Z ]*)[^a-zA-Z0-9]+\\2([ \\.,;]+|$)",
 			" ( )+",
 			"([\\.] [a-z])|^[a-z]",
-			"[\\.,;][a-zA-Z]",
-			"et al[^\\.]",
-			"[\\.,;]([^ $\\n])",
-			"[\\.,;]([^ $])",
-			"[\\.,;]([^ ]|[^$])",
-			"[\\.,;][^ ]",
-			"[\\.,;]",
-			"[\\.,;][[~\\.~,~;]]",
-			"[\\.,;].",
-			"\\\\(sub)+section",
-			"\\\\section|\\\\chapter",
-			"([^S]|s)ection~\\\\ref",
-			"([^C]|c)hapter~\\\\ref",
-			"[^~]\\\\cite|[~]\\\\ref",
-			"[^~]\\\\cite|[^~]\\\\ref",
-			"[^~]cite",
-			"name",
-			"[~]\\cite|[^~]\\ref",
-			"[^~]\\cite|[^~]\\ref",
-			"area",
-			"fight",
-			"United Kingdom",
-			"United States",
-			"cultural",
-			"2pt",
-			"image",
-			"sense",
-			"shift\\+w",
-			"it's",
-			"it's ",
-			"Event Identification module",
-			"Agent Description module",
-			"under it"
+			"[\\.,;][a-zA-Z]"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -478,6 +545,9 @@
 		"regex": true,
 		"replace_history":
 		[
+			"match.begin()",
+			"begin()",
+			"begin",
 			"Section",
 			"Anooj",
 			"Aiyappa",
@@ -506,7 +576,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -514,15 +584,15 @@
 					"file": "TypoCheck.py",
 					"settings":
 					{
-						"buffer_size": 403,
+						"buffer_size": 851,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								31
+								592,
+								592
 							]
 						],
 						"settings":
@@ -537,24 +607,294 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/vaisagh/RegReplace/testingFile",
+					"file": "grammarCheck.py",
 					"settings":
 					{
-						"buffer_size": 474,
+						"buffer_size": 4633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								460,
-								460
+								817,
+								817
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/vaisagh/RegReplace/testingFile",
+					"settings":
+					{
+						"buffer_size": 476,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								465,
+								476
 							]
 						],
 						"settings":
 						{
 							"auto_name": "testingFile",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "tagChecks.py",
+					"settings":
+					{
+						"buffer_size": 4313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								726,
+								726
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "patterns.py",
+					"settings":
+					{
+						"buffer_size": 7200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1100,
+								1100
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 140.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "extractPhrases.py",
+					"settings":
+					{
+						"buffer_size": 1820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"settings":
+					{
+						"buffer_size": 6743,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										174,
+										187
+									],
+									[
+										530,
+										543
+									],
+									[
+										789,
+										802
+									],
+									[
+										1013,
+										1026
+									],
+									[
+										1159,
+										1172
+									],
+									[
+										1330,
+										1343
+									],
+									[
+										1462,
+										1475
+									],
+									[
+										1677,
+										1690
+									],
+									[
+										2083,
+										2096
+									],
+									[
+										2450,
+										2463
+									],
+									[
+										2849,
+										2862
+									],
+									[
+										3108,
+										3121
+									],
+									[
+										3332,
+										3345
+									],
+									[
+										3478,
+										3491
+									],
+									[
+										3649,
+										3662
+									],
+									[
+										3781,
+										3794
+									],
+									[
+										3996,
+										4009
+									],
+									[
+										4402,
+										4415
+									],
+									[
+										4769,
+										4782
+									],
+									[
+										5167,
+										5180
+									],
+									[
+										5426,
+										5439
+									],
+									[
+										5650,
+										5663
+									],
+									[
+										5796,
+										5809
+									],
+									[
+										6201,
+										6214
+									],
+									[
+										6568,
+										6581
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								5431,
+								5431
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 176.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/vaisagh/Library/Application Support/Sublime Text 2/Packages/Default/goto_line.py",
+					"settings":
+					{
+						"buffer_size": 950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								124,
+								192
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -611,6 +951,26 @@
 		"selected_items":
 		[
 			[
+				"extra",
+				"extractPhrases.py"
+			],
+			[
+				"gra",
+				"grammarCheck.py"
+			],
+			[
+				"grammar",
+				"grammarCheck.py"
+			],
+			[
+				"extrac",
+				"extractPhrases.py"
+			],
+			[
+				"tag",
+				"tagChecks.py"
+			],
+			[
 				"qe.bib",
 				"QE.bib"
 			],
@@ -650,6 +1010,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/Users/vaisagh/Dropbox/MistakeCorrectionScript/MIstakeCorrectionScript.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -657,6 +1021,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 90.0,
+	"side_bar_width": 223.0,
 	"status_bar_visible": true
 }
