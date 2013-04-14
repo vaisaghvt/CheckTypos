@@ -1,0 +1,54 @@
+testingFile
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur\cite(blah) adipisicing \ref{blah} elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,    \cite
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur.excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\section{this is not capital case}
+
+\chapter{what}
+
+\chapter{And this}
+
+\chapter{This}
+
+\subsection{Test this}
+\subsection{and this and}
+\subsection{Test}
+\subsection{and}
+\subsubsection{Test this}
+\subsubsection{and this and}
+\subsubsection{Test}
+\subsubsection{and}
+\subparagraph{Test This}
+\subparagraph{and this and}
+\paragraph{Test}
+
+
+subsubsection{and}
+
+((\\(sub)+section)|((\\(sub)*paragraph)))(\{)([A-Z](.*))(?=\})
+\chapter{This Is Title Case}
+
+(?<=sub)+(?>=section)((|(.*) )[a-z].*)(?=\})
+
+
+a s lorem lorem sadf    .
+
+test test chapter~\ref{dsafd}, section~\ref{} Chapter~\ref{}
+
+test , test
+
+this is a phrase this is a phrase
+
+((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*))|([A-Z].*[A-Z].*))(?=\})
