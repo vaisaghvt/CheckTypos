@@ -22,20 +22,32 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
 
 
     def run(self, edit):
-
+        self.replacementMade = False
         self.inputLock = threading.Lock()
         self.user_input_ready = False
+
+        self.recalculateMatches()
+        # print(completeBuffer)
+        dj = threading.Thread(target=self.processParagraph, args=())
+        dj.start()
+        # self.processParagraph([completeBuffer])
+
+    def recalculateCompleteBuffer(self):
+        print("recalculating buffers")
         regions = self.view.find_all(".*")
-        completeBuffer = '\n'.join(map(self.paraString, regions))
+        self.completeBuffer = '\n'.join(map(self.paraString, regions))
+
+    def recalculateMatches(self):
+        self.recalculateCompleteBuffer()
+        print("recalculating matches")
         self.viewMatches = {}
+        self.matchIterators = {}
         for pattern in patterns: # for each pattern
             regexPattern = pattern["regex"]
             self.viewMatches[regexPattern] = self.view.find_all(regexPattern)
+            regex = re.compile(regexPattern)
+            self.matchIterators[regexPattern] = regex.finditer(self.completeBuffer)
 
-        print(completeBuffer)
-        dj = threading.Thread(target=self.processParagraph, args=([completeBuffer]))
-        dj.start()
-        # self.processParagraph([completeBuffer])
 
     def paraString(self, region):
         line= self.view.substr(region)
@@ -54,13 +66,18 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
 
         self.currentReplacement = suggestReplacement(match, para, replacementFunction)
         sublime.set_timeout(self.getUserInput, 0)
-        return para, False
+        # return para, False
         # else:
         #     print 'invalid choice'
 
     def on_done(self, userInput):
         print("Done:"+userInput)
+        editObject =self.view.begin_edit()
+        self.view.replace(editObject, self.currentMatchedRegionInView, userInput)
+        self.recalculateMatches()
+        self.view.end_edit(editObject)
         self.user_input_ready = True
+        self.replacementMade= True
         self.inputLock.release()
 
     def on_cancel(self):
@@ -78,10 +95,10 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.view.show(self.currentMatchedRegionInView)
         pass
 
-    def processParagraph(self, para):
+    def processParagraph(self):
         problemsFound = False
         user_input_ready = False
-        print(para)
+        self.inputLock.acquire(True)
 
         for iteration in range(2):
             for pattern in patterns: # for each pattern
@@ -96,17 +113,18 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                 flag = False
 
                 while True:
-                    replacementMade = False
+                    self.replacementMade = False
+                    sublime.set_timeout(self.recalculateMatches,0)
                     count=0
-                    for match in regex.finditer(para): # for each match in the paragraph
+                    for match in self.matchIterators[regexPattern]: # for each match in the paragraph
                         # print(match)
-                        self.inputLock.acquire(True)
+
                         self.currentMatchedRegionInView = self.viewMatches[regexPattern][count]
                         sublime.set_timeout(self.changeSelection,0)
 
                         count= count+1
                         for option in pattern["tags"]:
-                            if checkPattern(option, match, para):
+                            if checkPattern(option, match, self.completeBuffer):
                                 # print 'flag true'
                                 flag = True
                                 break
@@ -116,20 +134,20 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                         problemsFound = True
                         # print 'Problem: ', pattern["description"]
                         #      # '; Para', index+1
-                        print 'Phrase: ', extractPhrase(match, para)
+                        print 'Phrase: ', extractPhrase(match, self.completeBuffer)
                         print self.currentMatchedRegionInView
 
                         # print "context: ",para
                         self.descriptionString = pattern["description"]
 
-                        replacedString, replacementMade = self.dealWithIt(match,
-                                para, pattern["function"])
-
+                        self.dealWithIt(match,
+                                self.completeBuffer, pattern["function"])
+                        self.inputLock.acquire(True)
                         # para = paragraphs[index]
                         # print '**********************'
-                        if replacementMade:
+                        if self.replacementMade:
                             break
-                    if not replacementMade:
+                    if not self.replacementMade:
                         break
 
         print("done")
