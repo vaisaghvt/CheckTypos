@@ -103,6 +103,7 @@ patterns = [
 # change too many spaces to be more specific
 # |([A-Z](.*?)[A-Z](.*?))
 # |([A-Z](.*?)[A-Z](.*?))
+# (?<=("description":'))(.*?)(?=')
 
 
 def capitalizeFirstLetter(word):
