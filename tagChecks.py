@@ -12,9 +12,9 @@ def checkPattern(option, match, line):
     elif option =='e':
         # print 'checking equation'
         return isEquation(match, line)
-    elif option =='i':
-        # print 'checking completion'
-        return isInComplete(match, line)
+    # elif option =='i':
+    #     # print 'checking completion'
+    #     return isInComplete(match, line)
     elif option =='f':
         return isFigure(match, line)
     elif option =='b':
@@ -118,20 +118,20 @@ def isComment(match, line):
             return True
     return False
 
-def isInComplete(match, para):
-    # print para[match.start():match.end()]
-    if not (para[match.start()] == ' ' or para[match.start()] == '\n'):
-        # print "not starting with space"
-        if match.start()-1>=0:
-            firstLetter = para[match.start()-1]
-            # print "first:", firstLetter
-            if not (firstLetter == ' ' or firstLetter == '\n'):
-                return True
-    if not (para[match.end()-1] == ' ' or para[match.end()-1] == '\n'):
-        # print "not ending with space"
-        if match.end()<len(para):
-            lastLetter = para[match.end()]
-            # print "last",lastLetter
-            if not (lastLetter == ' ' or lastLetter == '\n'):
-                return True
-    return False
+# def isInComplete(match, para):
+#     # print para[match.start():match.end()]
+#     if not (para[match.start()] == ' ' or para[match.start()] == '\n'):
+#         # print "not starting with space"
+#         if match.start()-1>=0:
+#             firstLetter = para[match.start()-1]
+#             # print "first:", firstLetter
+#             if not (firstLetter == ' ' or firstLetter == '\n'):
+#                 return True
+#     if not (para[match.end()-1] == ' ' or para[match.end()-1] == '\n'):
+#         # print "not ending with space"
+#         if match.end()<len(para):
+#             lastLetter = para[match.end()]
+#             # print "last",lastLetter
+#             if not (lastLetter == ' ' or lastLetter == '\n'):
+#                 return True
+#     return False

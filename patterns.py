@@ -98,7 +98,7 @@ patterns = [
     {"regex":r'(section)(~\\ref)',          "description": 'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
     {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cefb',     "function":removeExtraSpaces},
     {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
-                                        "description":'REPEATED PHRASE',            "tags":'ic',         "function":removeRepeatedPhrase},
+                                        "description":'REPEATED PHRASE',            "tags":'ce',         "function":removeRepeatedPhrase},
     ]
 # change too many spaces to be more specific
 # |([A-Z](.*?)[A-Z](.*?))

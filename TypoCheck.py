@@ -25,7 +25,8 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.replacementMade = False
         self.inputLock = threading.Lock()
         self.user_input_ready = False
-
+        self.myKey = "CheckTypoKey"
+        self.view.erase_status(self.myKey)
         self.recalculateMatches()
         print(self.completeBuffer)
         dj = threading.Thread(target=self.processParagraph, args=())
@@ -80,6 +81,10 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
     def on_cancel(self):
         self.user_input_ready = True
         self.inputLock.release()
+
+    def printStatusMessage(self):
+        self.view.erase_status(self.myKey)
+        self.view.set_status(self.myKey,self.printStatus)
 
 
     def input_is_ready(self):
@@ -146,10 +151,11 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                     if not self.replacementMade:
                         break
 
-        print("done")
-        # if not problemsFound:
-        #     print 'No mistakes found. Good Stuff!'
-        # else:
-        #     print 'Corrections made in ', fileName
+        # print("done")
+        if not problemsFound:
+            self.printStatus='No mistakes found. Good Stuff!'
+        else:
+            self.printStatus='Typo check complete'
+        sublime.set_timeout(self.printStatusMessage,0)
         #     saveChanges(paragraphs, fileName)
         #     problemsFound = False

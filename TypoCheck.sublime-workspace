@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"print",
+				"printStatusMessage"
+			],
+			[
 				"ma",
 				"matchIterators"
 			],
@@ -127,7 +131,7 @@
 			"file": "TypoCheck.py",
 			"settings":
 			{
-				"buffer_size": 5434,
+				"buffer_size": 5708,
 				"line_ending": "Unix"
 			}
 		},
@@ -135,7 +139,7 @@
 			"file": "tagChecks.py",
 			"settings":
 			{
-				"buffer_size": 4027,
+				"buffer_size": 4067,
 				"line_ending": "Unix"
 			}
 		},
@@ -164,13 +168,22 @@
 			}
 		},
 		{
-			"contents": "TestingFile\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur~\\cite(blah) adipisicing~\\ref{blah} elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, poda manda\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nlorem lorem   \n\nthe phrase is the phrase is",
-			"file": "testingFile2",
-			"file_size": 955,
-			"file_write_time": 1365965480000000,
+			"contents": "Goal is something I want to do. I Chapter~\\ref{blas} would ahve been a good keeper for the game. Et the world be as it eh? Goal is something I want to do. I~\\cite{blah} would ahve been a good keeper for the game. Let~\\cite{blahblah} the world be as it eh? Lorem ipsum is also another option for this. What a is the problem\n\nGoal is something I want to do. I Chapter~\\ref{blas} would ahve been a good keeper for the game. Et the world be as it eh? Goal is something I want to do. I~\\cite{blah} would ahve been a good keeper for the game. Let~\\cite{blahblah} the world be as it eh? Lorem ipsum is also another option for this.\n\ngoa\n",
 			"settings":
 			{
-				"buffer_size": 991,
+				"buffer_size": 630,
+				"line_ending": "Unix",
+				"name": "Goal is something I want to do. I Chapter~\\ref{bla"
+			}
+		},
+		{
+			"contents": "TestingFile\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n\nLorem ipsum dolor sit amet, consectetur~\\cite(blah) adipisicing~\\ref{blah} elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, poda manda\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\\begin{equation}\nlorem      lorem\n\\end{equation}\n\nthe phrase is ",
+			"file": "testingFile2",
+			"file_size": 1021,
+			"file_write_time": 1366003721000000,
+			"settings":
+			{
+				"buffer_size": 1007,
 				"line_ending": "Unix",
 				"name": "testingFile"
 			}
@@ -621,7 +634,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -629,15 +642,15 @@
 					"file": "TypoCheck.py",
 					"settings":
 					{
-						"buffer_size": 5434,
+						"buffer_size": 5708,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4340,
-								4340
+								648,
+								648
 							]
 						],
 						"settings":
@@ -645,7 +658,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2252.0,
+						"translation.y": 298.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -655,15 +668,15 @@
 					"file": "tagChecks.py",
 					"settings":
 					{
-						"buffer_size": 4027,
+						"buffer_size": 4067,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								104,
-								104
+								3300,
+								4067
 							]
 						],
 						"settings":
@@ -671,7 +684,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2159.0,
+						"translation.y": 2275.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -688,8 +701,8 @@
 						"selection":
 						[
 							[
-								4397,
-								4397
+								4395,
+								4395
 							]
 						],
 						"settings":
@@ -697,7 +710,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1085.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -723,7 +736,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 257.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -749,25 +762,51 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 297.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "testingFile2",
 					"settings":
 					{
-						"buffer_size": 991,
+						"buffer_size": 630,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								991,
-								991
+								629,
+								629
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Goal is something I want to do. I Chapter~\\ref{bla",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "testingFile2",
+					"settings":
+					{
+						"buffer_size": 1007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								993,
+								1007
 							]
 						],
 						"settings":
@@ -782,7 +821,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
@@ -808,7 +847,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"settings":
 					{
 						"buffer_size": 1710,
