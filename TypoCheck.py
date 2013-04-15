@@ -1,5 +1,6 @@
-import sublime, sublime_plugin
 #/usr/bin/python
+
+import sublime, sublime_plugin
 import itertools as it
 import re
 import os
@@ -12,11 +13,11 @@ import threading
 
 
 
+
 def suggestReplacement(match, para, replacementFunction):
         """ Calls the replacement function with the right arguments"""
 
         return replacementFunction(match, para)
-
 
 class CheckTyposCommand(sublime_plugin.TextCommand):
 
@@ -28,9 +29,9 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.myKey = "CheckTypoKey"
         self.view.erase_status(self.myKey)
         self.recalculateMatches()
-        print(self.completeBuffer)
-        dj = threading.Thread(target=self.processParagraph, args=())
-        dj.start()
+        # print(self.completeBuffer)
+        self.mainThread = threading.Thread(target=self.processParagraph, args=())
+        self.mainThread.start()
         # self.processParagraph([completeBuffer])
 
     def recalculateCompleteBuffer(self):
@@ -55,8 +56,9 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
 
 
     def getUserInput(self):
-        print("current suggested replacement"+self.currentReplacement)
-        sublime.active_window().show_input_panel(self.descriptionString, self.currentReplacement, self.on_done, None, self.on_cancel)
+        # print("current suggested replacement"+self.currentReplacement)
+        sublime.active_window().show_input_panel(self.descriptionString,
+            self.currentReplacement, self.on_done, None, self.on_cancel)
 
     def dealWithIt(self, match, para, replacementFunction):
         """ Deals with a pattern match. Checks for replacement, displays it for user and asks what to do with
@@ -69,7 +71,7 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         #     print 'invalid choice'
 
     def on_done(self, userInput):
-        print("Done:"+userInput)
+        # print("Done:"+userInput)
         editObject =self.view.begin_edit()
         self.view.replace(editObject, self.currentMatchedRegionInView, userInput)
         self.recalculateMatches()
@@ -135,8 +137,8 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                         sublime.set_timeout(self.changeSelection,0)
                         # print 'Problem: ', pattern["description"]
                         #      # '; Para', index+1
-                        print 'Phrase: ', extractPhrase(match, self.completeBuffer)
-                        print self.currentMatchedRegionInView
+                        # print 'Phrase: ', extractPhrase(match, self.completeBuffer)
+                        # print self.currentMatchedRegionInView
 
                         # print "context: ",para
                         self.descriptionString = pattern["description"]

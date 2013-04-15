@@ -1,5 +1,6 @@
 from extractPhrases import *
 from urlparse import urlparse
+import re
 
 def checkPattern(option, match, line):
 
@@ -12,22 +13,43 @@ def checkPattern(option, match, line):
     elif option =='e':
         # print 'checking equation'
         return isEquation(match, line)
-    # elif option =='i':
-    #     # print 'checking completion'
-    #     return isInComplete(match, line)
-    elif option =='f':
-        return isFigure(match, line)
+    elif option =='p':
+        return isPicture(match, line)
     elif option =='b':
         return isTable(match, line)
     elif option =='h':
         return isInHyperLink(extractPhrase(match, line))
+    elif option =='m':
+        return isInMail(extractPhrase(match, line))
+    elif option =='r':
+        return isInRefCiteOrLabel(extractPhrase(match, line))
+    elif option =='f':
+        return isLikelyFile(extractPhrase(match, line))
+
+def isLikelyFile(phrase):
+    if re.search(r"(\\input\{.*?\})|(\\bibliography\{.*?\})", phrase) is not None:
+        return True
+    return False
+
+def isInRefCiteOrLabel(phrase):
+    if re.search(r"(\\ref\{.*?\})|(\\label\{.*?\})|(\\cite\{.*?\})", phrase) is not None:
+        return True
+    return False
 
 def isInHyperLink(phrase):
     phrase=phrase.strip()
-    phrase = phrase[:-1]
+    if re.search(r"www\..*\.", phrase) is not None:
+        return True
 
-    o = urlparse(phrase)
-    if len(o.netloc) >0 :
+    # phrase = phrase[:-1]
+    # print phrase
+    # o = urlparse(phrase)
+    # if len(o.netloc) >0 :
+    #     return True
+    return False
+
+def isInMail(phrase):
+    if re.search(r".*@.*\.", phrase) is not None:
         return True
     return False
 
@@ -77,7 +99,7 @@ def inEquationBody(match, line):
         return True
     return False
 
-def isFigure(match, line):
+def isPicture(match, line):
     end= line[0:match.start()].rfind(r'\end{figure}')
     pos= 0
     while(end!=-1):
@@ -117,21 +139,3 @@ def isComment(match, line):
         if line[i] == '%':
             return True
     return False
-
-# def isInComplete(match, para):
-#     # print para[match.start():match.end()]
-#     if not (para[match.start()] == ' ' or para[match.start()] == '\n'):
-#         # print "not starting with space"
-#         if match.start()-1>=0:
-#             firstLetter = para[match.start()-1]
-#             # print "first:", firstLetter
-#             if not (firstLetter == ' ' or firstLetter == '\n'):
-#                 return True
-#     if not (para[match.end()-1] == ' ' or para[match.end()-1] == '\n'):
-#         # print "not ending with space"
-#         if match.end()<len(para):
-#             lastLetter = para[match.end()]
-#             # print "last",lastLetter
-#             if not (lastLetter == ' ' or lastLetter == '\n'):
-#                 return True
-#     return False

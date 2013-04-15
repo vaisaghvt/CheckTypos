@@ -7,14 +7,22 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia 1 (1.5 deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur~\cite(blah) adipisicing~\ref{blah} elit, sed do eiusmod
+\input{test.bic}
+
+\bibliography{goal.big}
+
+vaisagh1@e.ntu.edu.sg
+
+http:\\www.ntu.edu.sg
+
+Lorem ipsum dolor sit amet, consectetur~\cite{bla:h} adipisicing~\ref{bl:ah} elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,~\cite
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-% test test
+Test
 
 \section{This Is Not Capital Case}
 
@@ -37,21 +45,28 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 \paragraph{Test}
 
 
-subsubsection{and}
+Subsubsection{and}
 
-((\\(sub)+section)|((\\(sub)*paragraph)))(\{)([A-Z](.*))(?=\})
-\chapter{This Is Title Case}
 
-(?<=sub)+(?>=section)((|(.*) )[a-z].*)(?=\})
 
-test
+Test
 
-a s lorem sadf.
+A s lor. Em: sadf.
 
-test Chapter~\ref{dsafd}, Section~\ref{} Chapter~\ref{}
+Test Chapter~\ref{dsafd}, Section~\ref{} Chapter~\ref{}
 
-test,
+Test,
 
-this is a phrase
+This is a phrase
 
-((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*))|([A-Z].*[A-Z].*))(?=\})
+.213
+
+1.23
+
+-.23
+
+. easdf
+((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])
+1. asdfasd
+
+(?<![-\d])([\.,;:])(?![\s\d])

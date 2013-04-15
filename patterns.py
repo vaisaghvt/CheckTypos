@@ -19,8 +19,11 @@ def removeSpaceBeforePunctuation(match, para):
 def addSpaceAfterPunctuation(match, para):
     """ Match   :   Letter right after punctuation
     Fix     :   Add a space after punctuation"""
+    if match.group(1) is None:
+        return match.group(6)+" "
+    else:
+        return match.group(1)+" "
 
-    return match.group(1)+" "+match.group(2)
 
 
 def capitalizeFirst(match, para):
@@ -66,7 +69,6 @@ def convertToTitleCase(match, para):
     return titleCase(match.group(0))
 
 def convertToSentenceCase(match, para):
-    print(match.group(0))
     return match.group(0)[0].upper()+match.group(0)[1:].lower()
 
 
@@ -88,15 +90,15 @@ patterns = [
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
     {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',    "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
     {"regex":r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',    "description":'TITLE CASE FOR SECTIONS AND CHAPTERS',  "tags":'c',     "function":convertToTitleCase},
-    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'aceh',     "function":removeSpaceBeforePunctuation},
-    {"regex":r'(?<!\d)([\.,;:])([\w])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'aceh',     "function":addSpaceAfterPunctuation},
-    {"regex":r'((?<=(\.\s))|(?<=(^\s))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
-                                                                                    "tags":'ace',      "function":capitalizeFirst},
+    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'acehmrf',     "function":removeSpaceBeforePunctuation},
+    {"regex":r'((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'acehmrf',     "function":addSpaceAfterPunctuation},
+    {"regex":r'((?<=(\.\s))|(?<=(\n\n))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
+                                                                                    "tags":'acehm',      "function":capitalizeFirst},
     {"regex":r'(\s*)(?<!~)((\\cite)|(\\ref))',   "description":'TILDE MARK NEEDED BEFORE CITE / REF',
                                                                                     "tags":'ace',       "function":addTildeBeforeCite},
     {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r'(section)(~\\ref)',          "description": 'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cefb',     "function":removeExtraSpaces},
+    {"regex":r'(section)(~\\ref)',          "description":'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
+    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cepb',     "function":removeExtraSpaces},
     {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
                                         "description":'REPEATED PHRASE',            "tags":'ce',         "function":removeRepeatedPhrase},
     ]

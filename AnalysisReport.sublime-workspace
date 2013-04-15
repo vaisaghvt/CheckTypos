@@ -136,67 +136,18 @@
 	"buffers":
 	[
 		{
-			"file": "TypoCheck.py",
+			"file": "/Users/vaisaghvt/Dropbox/Tex/analysis report/report.tex",
 			"settings":
 			{
-				"buffer_size": 5754,
+				"buffer_size": 18827,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "testingFile",
+			"file": "/Users/vaisaghvt/Dropbox/Tex/analysis report/AnalysisReport.sublime-project",
 			"settings":
 			{
-				"buffer_size": 1688,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "testingFile2",
-			"settings":
-			{
-				"buffer_size": 1006,
-				"line_ending": "Unix",
-				"name": "testingFile"
-			}
-		},
-		{
-			"file": "Default (Linux).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 64,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Default (Windows).sublime-keymap",
-			"settings":
-			{
-				"buffer_size": 64,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
-			"settings":
-			{
-				"buffer_size": 2794,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Main.sublime-menu",
-			"settings":
-			{
-				"buffer_size": 144,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "CheckTypos.sublime-commands",
-			"settings":
-			{
-				"buffer_size": 78,
+				"buffer_size": 133,
 				"line_ending": "Unix"
 			}
 		}
@@ -204,7 +155,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 71.0,
+		"height": 375.0,
 		"selected_items":
 		[
 			[
@@ -639,28 +590,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "TypoCheck.py",
+					"file": "/Users/vaisaghvt/Dropbox/Tex/analysis report/report.tex",
 					"settings":
 					{
-						"buffer_size": 5754,
+						"buffer_size": 18827,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16,
-								16
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -670,180 +621,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "testingFile",
+					"file": "/Users/vaisaghvt/Dropbox/Tex/analysis report/AnalysisReport.sublime-project",
 					"settings":
 					{
-						"buffer_size": 1688,
+						"buffer_size": 133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								468,
-								468
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "testingFile2",
-					"settings":
-					{
-						"buffer_size": 1006,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								993,
-								1006
-							]
-						],
-						"settings":
-						{
-							"auto_name": "testingFile",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Default (Linux).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 64,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								31,
-								31
+								116,
+								116
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Default (Windows).sublime-keymap",
-					"settings":
-					{
-						"buffer_size": 64,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
-					"settings":
-					{
-						"buffer_size": 2794,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								1503
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 140.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Main.sublime-menu",
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "CheckTypos.sublime-commands",
-					"settings":
-					{
-						"buffer_size": 78,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -961,7 +755,7 @@
 		[
 			[
 				"",
-				"/Users/vaisagh/Dropbox/MistakeCorrectionScript/MIstakeCorrectionScript.sublime-project"
+				"/Users/vaisaghvt/MistakeCorrectionScript/MistakeCorrection.sublime-project"
 			]
 		],
 		"width": 380.0
