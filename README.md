@@ -9,8 +9,11 @@ Default key mapping
 -------------------
 
 mac     : ctrl + command + alt + c
+
 windows : ctrl + shift + alt + c
+
 linux   : ctrl + shift + alt + c
+
 
 Command in pallete
 ------------------

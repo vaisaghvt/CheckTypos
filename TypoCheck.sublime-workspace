@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"true",
+				"True"
+			],
+			[
 				"sublime",
 				"sublime_plugin"
 			],
@@ -136,18 +140,10 @@
 	"buffers":
 	[
 		{
-			"file": "TypoCheck.py",
-			"settings":
-			{
-				"buffer_size": 5754,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "testingFile",
 			"settings":
 			{
-				"buffer_size": 1688,
+				"buffer_size": 1633,
 				"line_ending": "Unix"
 			}
 		},
@@ -161,42 +157,34 @@
 			}
 		},
 		{
-			"file": "Default (Linux).sublime-keymap",
+			"file": "tagChecks.py",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 3955,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Default (Windows).sublime-keymap",
+			"file": "extractPhrases.py",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 1820,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
+			"file": "patterns.py",
 			"settings":
 			{
-				"buffer_size": 2794,
+				"buffer_size": 4999,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Main.sublime-menu",
+			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 144,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "CheckTypos.sublime-commands",
-			"settings":
-			{
-				"buffer_size": 78,
+				"buffer_size": 1445,
 				"line_ending": "Unix"
 			}
 		}
@@ -204,7 +192,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 71.0,
+		"height": 93.0,
 		"selected_items":
 		[
 			[
@@ -328,11 +316,11 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 435.0
+		"width": 561.0
 	},
 	"console":
 	{
-		"height": 101.0
+		"height": 225.0
 	},
 	"distraction_free":
 	{
@@ -345,6 +333,12 @@
 	},
 	"file_history":
 	[
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/CheckTypos.sublime-commands",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Main.sublime-menu",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Windows).sublime-keymap",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Linux).sublime-keymap",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/TypoCheck.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/LaTeX.sublime-commands",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/SublimeREPL (OSX).sublime-settings",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (OSX).sublime-keymap",
@@ -473,6 +467,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"((\\.)(?![\\s\\d\\]\\}\\)])|([,;:\\?\\]\\)\\}])(?=[a-zA-Z0-9])",
+			"isFigure",
+			"ref",
+			"print",
+			"print(",
 			"super\\+alt\\+",
 			"super\\+",
 			"(?<=(\"description\":'))(.*?)(?=')",
@@ -595,12 +594,7 @@
 			">>>>>>",
 			"connectingArea>116",
 			"<connectingArea>117",
-			"117",
-			"MB3",
-			"<<<<",
-			"sleep",
-			"file",
-			"QTimer"
+			"117"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -639,53 +633,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "TypoCheck.py",
-					"settings":
-					{
-						"buffer_size": 5754,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16,
-								16
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "testingFile",
 					"settings":
 					{
-						"buffer_size": 1688,
+						"buffer_size": 1633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								468,
-								468
+								1423,
+								1423
 							]
 						],
 						"settings":
 						{
+							"spell_check": false,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -695,7 +664,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "testingFile2",
 					"settings":
 					{
@@ -722,24 +691,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Default (Linux).sublime-keymap",
+					"buffer": 2,
+					"file": "tagChecks.py",
 					"settings":
 					{
-						"buffer_size": 64,
+						"buffer_size": 3955,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31,
-								31
+								930,
+								930
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2353.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "extractPhrases.py",
+					"settings":
+					{
+						"buffer_size": 1820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -749,25 +744,25 @@
 				},
 				{
 					"buffer": 4,
-					"file": "Default (Windows).sublime-keymap",
+					"file": "patterns.py",
 					"settings":
 					{
-						"buffer_size": 64,
+						"buffer_size": 4999,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								64,
-								64
+								3260,
+								3260
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
-						"translation.x": 0.0,
+						"translation.x": 80.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -775,78 +770,26 @@
 				},
 				{
 					"buffer": 5,
-					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
+					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 2794,
+						"buffer_size": 1445,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6,
-								1503
+								1424,
+								1424
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 140.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Main.sublime-menu",
-					"settings":
-					{
-						"buffer_size": 144,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "CheckTypos.sublime-commands",
-					"settings":
-					{
-						"buffer_size": 78,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 679.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -900,6 +843,22 @@
 		"selected_items":
 		[
 			[
+				"ext",
+				"CheckTypos/extractPhrases.py"
+			],
+			[
+				"tag",
+				"CheckTypos/tagChecks.py"
+			],
+			[
+				"ty",
+				"CheckTypos/TypoCheck.py"
+			],
+			[
+				"tagc",
+				"CheckTypos/tagChecks.py"
+			],
+			[
 				"extra",
 				"extractPhrases.py"
 			],
@@ -914,10 +873,6 @@
 			[
 				"extrac",
 				"extractPhrases.py"
-			],
-			[
-				"tag",
-				"tagChecks.py"
 			],
 			[
 				"qe.bib",
