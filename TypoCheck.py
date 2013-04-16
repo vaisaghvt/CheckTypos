@@ -47,9 +47,11 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
         self.matchIterators = {}
         for pattern in patterns: # for each pattern
             regexPattern = pattern["regex"]
-            self.viewMatches[regexPattern] = self.view.find_all(regexPattern)
+            # regexPattern = pattern["regex"]
+            #     # print(regexPattern)
             regex = re.compile(regexPattern)
-            self.matchIterators[regexPattern] = regex.finditer(self.completeBuffer)
+            self.viewMatches[regex] = self.view.find_all(regexPattern)
+            self.matchIterators[regex] = regex.finditer(self.completeBuffer)
 
 
 
@@ -104,10 +106,11 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
 
         for iteration in range(2):
             for pattern in patterns: # for each pattern
-
                 regexPattern = pattern["regex"]
-                # print(regexPattern)
+                # regexPattern = pattern["regex"]
+                #     # print(regexPattern)
                 regex = re.compile(regexPattern)
+
 
 
                 # for viewMatch in viewMatches:
@@ -118,40 +121,41 @@ class CheckTyposCommand(sublime_plugin.TextCommand):
                     self.replacementMade = False
                     sublime.set_timeout(self.recalculateMatches,0)
                     count=0
-                    for match in self.matchIterators[regexPattern]: # for each match in the paragraph
-                        # print(match)
+                    if regex in self.matchIterators:
+                        for match in self.matchIterators[regex]: # for each match in the paragraph
+                            # print(match)
 
-                        self.currentMatchedRegionInView = self.viewMatches[regexPattern][count]
+                            self.currentMatchedRegionInView = self.viewMatches[regex][count]
 
 
-                        count= count+1
-                        for option in pattern["tags"]:
-                            if checkPattern(option, match, self.completeBuffer):
-                                # print 'flag true'
-                                flag = True
+                            count= count+1
+                            for option in pattern["tags"]:
+                                if checkPattern(option, match, self.completeBuffer):
+                                    # print 'flag true'
+                                    flag = True
+                                    break
+                            if flag:
+                                flag = False
+                                continue
+                            problemsFound = True
+                            sublime.set_timeout(self.changeSelection,0)
+                            # print 'Problem: ', pattern["description"]
+                            #      # '; Para', index+1
+                            # print 'Phrase: ', extractPhrase(match, self.completeBuffer)
+                            # print self.currentMatchedRegionInView
+
+                            # print "context: ",para
+                            self.descriptionString = pattern["description"]
+
+                            self.dealWithIt(match,
+                                    self.completeBuffer, pattern["function"])
+                            self.inputLock.acquire(True)
+                            # para = paragraphs[index]
+                            # print '**********************'
+                            if self.replacementMade:
                                 break
-                        if flag:
-                            flag = False
-                            continue
-                        problemsFound = True
-                        sublime.set_timeout(self.changeSelection,0)
-                        # print 'Problem: ', pattern["description"]
-                        #      # '; Para', index+1
-                        # print 'Phrase: ', extractPhrase(match, self.completeBuffer)
-                        # print self.currentMatchedRegionInView
-
-                        # print "context: ",para
-                        self.descriptionString = pattern["description"]
-
-                        self.dealWithIt(match,
-                                self.completeBuffer, pattern["function"])
-                        self.inputLock.acquire(True)
-                        # para = paragraphs[index]
-                        # print '**********************'
-                        if self.replacementMade:
+                        if not self.replacementMade:
                             break
-                    if not self.replacementMade:
-                        break
 
         # print("done")
         if not problemsFound:

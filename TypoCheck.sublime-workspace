@@ -140,11 +140,19 @@
 	"buffers":
 	[
 		{
+			"file": "TypoCheck.py",
+			"settings":
+			{
+				"buffer_size": 6040,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "testingFile",
 			"settings":
 			{
 				"buffer_size": 1633,
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -168,8 +176,8 @@
 			"file": "extractPhrases.py",
 			"settings":
 			{
-				"buffer_size": 1820,
-				"line_ending": "Unix"
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -467,11 +475,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"((\\.)(?![\\s\\d\\]\\}\\)])|([,;:\\?\\]\\)\\}])(?=[a-zA-Z0-9])",
-			"isFigure",
-			"ref",
-			"print",
-			"print(",
+			"matchIterators",
 			"super\\+alt\\+",
 			"super\\+",
 			"(?<=(\"description\":'))(.*?)(?=')",
@@ -594,7 +598,11 @@
 			">>>>>>",
 			"connectingArea>116",
 			"<connectingArea>117",
-			"117"
+			"117",
+			"MB3",
+			"<<<<",
+			"sleep",
+			"file"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -633,11 +641,80 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "TypoCheck.py",
+					"settings":
+					{
+						"buffer_size": 6040,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5238,
+								5238
+							]
+						],
+						"settings":
+						{
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1512.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "testingFile",
 					"settings":
 					{
@@ -648,17 +725,59 @@
 						"selection":
 						[
 							[
-								1423,
-								1423
+								1523,
+								1523
 							]
 						],
 						"settings":
 						{
-							"spell_check": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 492.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -734,7 +853,50 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -743,8 +905,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "patterns.py",
+					"buffer": 5,
+					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 140.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Main.sublime-menu",
 					"settings":
 					{
 						"buffer_size": 4999,
