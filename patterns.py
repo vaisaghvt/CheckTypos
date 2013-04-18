@@ -1,171 +1,85 @@
 from string import *
 from extractPhrases import *
+import re
 
+def titleCase(s):
+
+    return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
+                lambda mo: mo.group(0)[0].upper() +
+                            mo.group(0)[1:].lower(),
+                            s)
 
 def removeSpaceBeforePunctuation(match, para):
     """
     Match   :   Space before punctuation
     Fix     :   Remove space before punctuation"""
-
-    if match.start() == 0:
-        newPara = para[1:len(para)]
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == ' ':
-            newPara = para[0:i] + para[i + 1:len(para)]
-    return newPara
+    return match.group(2)
 
 
 def addSpaceAfterPunctuation(match, para):
     """ Match   :   Letter right after punctuation
     Fix     :   Add a space after punctuation"""
+    if match.group(1) is None:
+        return match.group(6)+" "
+    else:
+        return match.group(1)+" "
 
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == '.' or para[i] == ',' or para[i] == ';' \
-            or para[i] == ':':
-            newPara = para[0:i + 1] + ' ' + para[i + 1:len(para)]
-    return newPara
 
 
 def capitalizeFirst(match, para):
     """ Match   :   Space before punctuation
     Fix     :   Remove space before punctuation"""
 
-    if match.start() == 0:
-        newPara = para[0].upper() + para[1:len(para)]
-    else:
-        for i in range(match.start(), match.end(), 1):
-            if para[i] == ' ':
-                newPara = para[0:i + 1] + para[i + 1].upper() + para[i
-                    + 2:len(para)]
-    return newPara
+    # if match.start() == 0:
+    #     newPara = para[0].upper() + para[match.end()]
+    # else:
+    #     for i in range(match.start(), match.end(), 1):
+    #         if para[i] == ' ':
+    #             newPara = para[0:i + 1] + para[i + 1].upper() + para[i
+    #                 + 2:len(para)]
+    return match.group(0).upper()
+
 
 
 def removeExtraSpaces(match, para):
     """ Match   :   Multiple spaces
     Fix     :   Replace with single space"""
 
-    return para[0:match.start()] + ' ' + para[match.end():len(para)]
+    return " "
 
 
 def addTildeBeforeCite(match, para):
     """ Match   :   /cite without a tilde before. Either a space or a letter.
     Fix     :   Remove any spaces and replace with tilde."""
 
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == '\\':
-            if para[i - 1] == ' ':
-                newPara = para[0:i - 1] + '~' + para[i:len(para)]
-            else:
-                newPara = para[0:i] + '~' + para[i:len(para)]
-    return newPara
+    return "~"+match.group(2)
 
 
-def capitalizeChapter(match, para):
-    """ Match   :   Chapter reference with 'c' not capital in chapter.
-    Fix     :   Capitalize the 'c' in chapter."""
 
-    if match.start() == 0:
-        newPara = para[0].upper() + para[1:len(para)]
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == 'c':
-            newPara = para[0:i] + para[i].upper() + para[i
-                + 1:len(para)]
-    return newPara
-
-
-def capitalizeSection(match, para):
+def titleCaseFirstWord(match, para):
     """ Match   :   Section reference with 's' not capital in section.
     Fix     :   Capitalize the 's' in section."""
 
-    if match.start() == 0:
-        newPara = para[0].upper() + para[1:len(para)]
-    for i in range(match.start(), match.end(), 1):
-        if para[i] == 's':
-            newPara = para[0:i] + para[i].upper() + para[i
-                + 1:len(para)]
-    return newPara
+    return match.group(1)[0].upper() + match.group(1)[1:].lower()+match.group(2)
 
 
 def convertToTitleCase(match, para):
-    """ Match   :   Non title case section or chapter heading.
-    Fix     :   Change to title case"""
+    """ Match   :   Non-title case cheapter/ section heading
+    Fix     :   Title cased"""
+    return titleCase(match.group(0))
 
-    for i in range(match.end(), len(para), 1):
-        if para[i] == '{':
-            pos = i
-            break
-    newPara = para[0:pos]
-    count = 1
-    forceCapitalize = True
-    while pos < len(para):
-        if para[pos] == '{':
-            count += 1
-            newPara += para[pos]
-        elif para[pos] == '}':
-            count -= 1
-            newPara += para[pos]
-            if count == 0:
-                break
-        if para[pos].isalpha():
-            (nextWord, pos) = extractNextWord(pos, para)
-            if forceCapitalize:
-                newPara += capitalizeFirstLetter(nextWord)
-                forceCapitalize = False
-            elif nextWord not in (
-                'and',
-                'the',
-                'or',
-                'on',
-                'at',
-                'in',
-                ):
-                newPara += capitalizeFirstLetter(nextWord)
-        else:
-            newPara += para[pos]
-        pos += 1
-    newPara += para[pos:len(para)]
+def convertToSentenceCase(match, para):
+    return match.group(0)[0].upper()+match.group(0)[1:].lower()
 
-
-def convertFirstLetterToCapital(match, para):
-    """    Match   :   Non sentence case sub or sub sub section.
-    Fix     :   Change to sentence case"""
-
-    for i in range(match.end(), len(para), 1):
-        if para[i] == '{':
-            pos = i
-            break
-    newPara = para[0:pos]
-    count = 1
-    forceCapitalize = True
-    while pos < len(para):
-        if para[pos] == '{':
-            count += 1
-            newPara += para[pos]
-        elif para[pos] == '}':
-            count -= 1
-            newPara += para[pos]
-            if count == 0:
-                break
-        if para[pos].isalpha():
-            (nextWord, pos) = extractNextWord(pos, para)
-            if forceCapitalize:
-                newPara += capitalizeFirstLetter(nextWord)
-                forceCapitalize = False
-            elif notFullyCapital(nextWord):
-                newPara += uncapitalizeFirstLetter(nextWord)
-        else:
-            newPara += para[pos]
-        pos += 1
-    newPara += para[pos:len(para)]
 
 
 def removeRepeatedPhrase(match, para):
     """ Match   :   Repeated phrase.
     Fix     :   Remove repeated phrase"""
-
-    newpara = para[0:match.start()] + para[match.start():match.start()
-        + (match.end() - match.start()) / 2] + para[match.end()
-        - 1:len(para)]
+    # newpara = para[0:match.start()] + para[match.start():match.start()
+    #     + (match.end() - match.start()) / 2] + para[match.end()
+    #     - 1:len(para)]
+    newpara = match.group(2)+match.group(3)
     return newpara
 
 
@@ -173,21 +87,25 @@ def removeRepeatedPhrase(match, para):
 
 
 patterns = [
-    # r'\\section|\\chapter':["TITLE CASE FOR SECTIONS AND CHAPTERS", 'c', convertToTitleCase],
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
-    {"regex":r' [\.,;:]',               "description":'SPACE BEFORE PUNCTUATION.',  "tags":'taceh',     "function":removeSpaceBeforePunctuation},
-    {"regex":r'[\.,;:][\w]',        "description":'NO SPACE AFTER PUNCTUATION.',"tags":'taceh',     "function":addSpaceAfterPunctuation},
-    {"regex":r'([\.]|^)\s+[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP.',
-                                                                                    "tags":'tace',      "function":capitalizeFirst},
-    {"regex":r'[^~]\\cite|[^~]\\ref',   "description":'TILDE MARK NEEDED BEFORE CITE',
+    {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',    "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
+    {"regex":r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',    "description":'TITLE CASE FOR SECTIONS AND CHAPTERS',  "tags":'c',     "function":convertToTitleCase},
+    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'acehmrf',     "function":removeSpaceBeforePunctuation},
+    {"regex":r'((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'acehmrf',     "function":addSpaceAfterPunctuation},
+    {"regex":r'((?<=(\.\s))|(?<=(\n\n))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
+                                                                                    "tags":'acehm',      "function":capitalizeFirst},
+    {"regex":r'(\s*)(?<!~)((\\cite)|(\\ref))',   "description":'TILDE MARK NEEDED BEFORE CITE / REF',
                                                                                     "tags":'ace',       "function":addTildeBeforeCite},
-    {"regex":r'chapter~\\ref',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":capitalizeChapter},
-    {"regex":r'section~\\ref',          "description": 'CAPITALIZE S IN SECTION',   "tags":'c',         "function":capitalizeSection},
-    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'tcefb',     "function":removeExtraSpaces},
-    {"regex":r'(?i)([ ]+|^)(\w[\w ]*)[^\w\d]+\2([ \.,;]|$|)',
-                                        "description":'REPEATED PHRASE',            "tags":'i',         "function":removeRepeatedPhrase},
+    {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
+    {"regex":r'(section)(~\\ref)',          "description":'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
+    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cepb',     "function":removeExtraSpaces},
+    {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
+                                        "description":'REPEATED PHRASE',            "tags":'ce',         "function":removeRepeatedPhrase},
     ]
-
+# change too many spaces to be more specific
+# |([A-Z](.*?)[A-Z](.*?))
+# |([A-Z](.*?)[A-Z](.*?))
+# (?<=("description":'))(.*?)(?=')
 
 
 def capitalizeFirstLetter(word):

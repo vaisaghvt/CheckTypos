@@ -1,29 +1,10 @@
 [
     {
-        "caption": "Preferences",
-        "mnemonic": "n",
-        "id": "preferences",
+        "id": "tools",
         "children":
         [
-            {
-                "caption": "Package Settings",
-                "mnemonic": "P",
-                "id": "package-settings",
-                "children":
-                [
-                    {
-                        "caption": "TypoChecker",
-                        "children":
-                        [
-                            {
-                                "command": "check_typos",
-                                "caption": "CheckTypos"
-                            }
+            {"caption": "Check Typos", "command": "check_typos"}
 
-                        ]
-                    }
-                ]
-            }
         ]
     }
 ]
