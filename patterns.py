@@ -1,5 +1,4 @@
 from string import *
-from extractPhrases import *
 import re
 
 def titleCase(s):
@@ -88,14 +87,15 @@ def removeRepeatedPhrase(match, para):
 
 patterns = [
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
-    {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',    "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
+    {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',
+                                                                            "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
     {"regex":r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',    "description":'TITLE CASE FOR SECTIONS AND CHAPTERS',  "tags":'c',     "function":convertToTitleCase},
     {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'acehmrf',     "function":removeSpaceBeforePunctuation},
     {"regex":r'((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'acehmrf',     "function":addSpaceAfterPunctuation},
     {"regex":r'((?<=(\.\s))|(?<=(\n\n))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
                                                                                     "tags":'acehm',      "function":capitalizeFirst},
     {"regex":r'(\s*)(?<!~)((\\cite)|(\\ref))',   "description":'TILDE MARK NEEDED BEFORE CITE / REF',
-                                                                                    "tags":'ace',       "function":addTildeBeforeCite},
+                                                                                    "tags":'ac',       "function":addTildeBeforeCite},
     {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
     {"regex":r'(section)(~\\ref)',          "description":'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
     {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cepb',     "function":removeExtraSpaces},

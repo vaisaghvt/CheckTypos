@@ -1,30 +1,28 @@
-from extractPhrases import *
-from urlparse import urlparse
 import re
 
-def checkPattern(option, match, line):
+def checkPattern(option, match, completeBuffer, phrase):
 
     if option =='a':
         # print 'checking acronym'
-        return isAcronym(extractPhrase(match, line))
+        return isAcronym(phrase)
     elif option =='c':
         # print 'checking comment'
-        return isComment(match, line)
+        return isComment(match, completeBuffer)
     elif option =='e':
         # print 'checking equation'
-        return isEquation(match, line)
+        return isEquation(match, completeBuffer)
     elif option =='p':
-        return isPicture(match, line)
+        return isPicture(match, completeBuffer)
     elif option =='b':
-        return isTable(match, line)
+        return isTable(match, completeBuffer)
     elif option =='h':
-        return isInHyperLink(extractPhrase(match, line))
+        return isInHyperLink(phrase)
     elif option =='m':
-        return isInMail(extractPhrase(match, line))
+        return isInMail(phrase)
     elif option =='r':
-        return isInRefCiteOrLabel(extractPhrase(match, line))
+        return isInRefCiteOrLabel(phrase)
     elif option =='f':
-        return isLikelyFile(extractPhrase(match, line))
+        return isLikelyFile(phrase)
 
 def isLikelyFile(phrase):
     if re.search(r"(\\input\{.*?\})|(\\bibliography\{.*?\})", phrase) is not None:
@@ -72,70 +70,80 @@ def isInCite(phrase):
     else :
         return False
 
-def inLineEquation(match, line):
-    """ Returns true if in inline equation"""
-    hasDollarTagBefore=False
-    for i in range(match.start()-1,-1,-1):
-        if line[i] == '$':
-            hasDollarTagBefore=True
-            break
-    if hasDollarTagBefore:
-        for i in range(match.end(),len(line),1):
-            if line[i] == '$':
-                return True
-    return False
 
-def inEquationBody(match, line):
-    # print 'checking equation', match.start()-1
-    end= line[0:match.start()].rfind(r'\end{equation}')
+def isPicture(match, completeBuffer):
+    end= completeBuffer[0:match.start()].rfind(r'\end{figure}')
     pos= 0
     while(end!=-1):
         pos= end+3
-        # print pos, 'line', line[pos:match.start()]
-        end= line[pos:match.start()].rfind(r'\end{equation}')
+        # print pos, 'completeBuffer', completeBuffer[pos:match.start()]
+        end= completeBuffer[pos:match.start()].rfind(r'\end{figure}')
         # print '*******'
-    beg=line[pos:match.start()].rfind(r'\begin{equation}')
+    beg=completeBuffer[pos:match.start()].rfind(r'\begin{figure}')
     if(beg!=-1):
         return True
     return False
 
-def isPicture(match, line):
-    end= line[0:match.start()].rfind(r'\end{figure}')
+def isTable(match, completeBuffer):
+    end= completeBuffer[0:match.start()].rfind(r'\end{table}')
     pos= 0
     while(end!=-1):
         pos= end+3
-        # print pos, 'line', line[pos:match.start()]
-        end= line[pos:match.start()].rfind(r'\end{figure}')
+        # print pos, 'completeBuffer', completeBuffer[pos:match.start()]
+        end= completeBuffer[pos:match.start()].rfind(r'\end{table}')
         # print '*******'
-    beg=line[pos:match.start()].rfind(r'\begin{figure}')
+    beg=completeBuffer[pos:match.start()].rfind(r'\begin{table}')
     if(beg!=-1):
         return True
     return False
 
-def isTable(match, line):
-    end= line[0:match.start()].rfind(r'\end{table}')
-    pos= 0
-    while(end!=-1):
-        pos= end+3
-        # print pos, 'line', line[pos:match.start()]
-        end= line[pos:match.start()].rfind(r'\end{table}')
-        # print '*******'
-    beg=line[pos:match.start()].rfind(r'\begin{table}')
-    if(beg!=-1):
-        return True
-    return False
-
-def isEquation(match, line):
-    if(inLineEquation(match,line) or inEquationBody(match, line)):
+def isEquation(match, completeBuffer):
+    if(inLineEquation(match,completeBuffer) or inEquationBody(match, completeBuffer)):
        return True
     else:
        return False
 
-def isComment(match, line):
+
+#Obsolete : to be replaced
+def inLineEquation(match, completeBuffer):
+    """ Returns true if in incompleteBuffer equation"""
+    hasDollarTagBefore=False
     for i in range(match.start()-1,-1,-1):
-        # print line[i]
-        if line[i] == '\n':
+        if completeBuffer[i] == '\n':   # TODO : replace this something else.
+            break;
+        if completeBuffer[i] == '$':
+            hasDollarTagBefore=True
             break
-        if line[i] == '%':
+    if hasDollarTagBefore:
+        for i in range(match.end(),len(completeBuffer),1):
+            if completeBuffer[i] == '\n':   # TODO : replace this something else.
+                break;
+            if completeBuffer[i] == '$':
+                return True
+    return False
+
+# Issue : ignores end equations that are commented out.
+def inEquationBody(match, completeBuffer):
+    # print 'checking equation', match.start()-1
+    end= completeBuffer[0:match.start()].rfind(r'\end{equation}') # Find the end of last equation
+    pos= 0
+    while(end!=-1):     # If it found some other equation in the file, keep finding till there are
+                        # no  more end equations after the pos position
+        pos= end+3
+        # print pos, 'completeBuffer', completeBuffer[pos:match.start()]
+        end= completeBuffer[pos:match.start()].rfind(r'\end{equation}')
+        # print '*******'
+    beg=completeBuffer[pos:match.start()].rfind(r'\begin{equation}')
+    if(beg!=-1):
+        return True
+    return False
+
+
+def isComment(match, completeBuffer):
+    for i in range(match.start()-1,-1,-1):
+        # print completeBuffer[i]
+        if completeBuffer[i] == '\n':
+            break
+        if completeBuffer[i] == '%':
             return True
     return False
