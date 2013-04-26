@@ -18,10 +18,11 @@ def removeSpaceBeforePunctuation(match, para):
 def addSpaceAfterPunctuation(match, para):
     """ Match   :   Letter right after punctuation
     Fix     :   Add a space after punctuation"""
+    print match.groups()
     if match.group(1) is None:
-        return match.group(6)+" "
+        return match.group(3)+" "
     else:
-        return match.group(1)+" "
+        return match.group(2)+" "
 
 
 
@@ -98,7 +99,6 @@ patterns = [
                                                                                     "tags":'ac',       "function":addTildeBeforeCite},
     {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
     {"regex":r'(section)(~\\ref)',          "description":'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r' ( )+',                  "description":'TOO MANY SPACES',            "tags":'cepb',     "function":removeExtraSpaces},
     {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
                                         "description":'REPEATED PHRASE',            "tags":'ce',         "function":removeRepeatedPhrase},
     ]

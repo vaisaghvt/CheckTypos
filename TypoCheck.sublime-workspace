@@ -143,7 +143,7 @@
 			"file": "TypoCheck.py",
 			"settings":
 			{
-				"buffer_size": 6040,
+				"buffer_size": 7313,
 				"line_ending": "Windows"
 			}
 		},
@@ -159,7 +159,7 @@
 			"file": "testingFile2",
 			"settings":
 			{
-				"buffer_size": 1006,
+				"buffer_size": 1020,
 				"line_ending": "Unix",
 				"name": "testingFile"
 			}
@@ -168,23 +168,15 @@
 			"file": "tagChecks.py",
 			"settings":
 			{
-				"buffer_size": 3955,
+				"buffer_size": 4625,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "extractPhrases.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "patterns.py",
 			"settings":
 			{
-				"buffer_size": 4999,
+				"buffer_size": 4933,
 				"line_ending": "Unix"
 			}
 		},
@@ -192,7 +184,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 1445,
+				"buffer_size": 1429,
 				"line_ending": "Unix"
 			}
 		}
@@ -203,6 +195,34 @@
 		"height": 93.0,
 		"selected_items":
 		[
+			[
+				"syn python",
+				"Set Syntax: Python"
+			],
+			[
+				"syn text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"syn pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"syn py",
+				"Set Syntax: Python"
+			],
+			[
+				"syn mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syn pyh",
+				"Set Syntax: Python"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -316,10 +336,6 @@
 				"Package Control: Disable Package"
 			],
 			[
-				"disabl",
-				"Package Control: Disable Package"
-			],
-			[
 				"packages",
 				"Preferences: Browse Packages"
 			]
@@ -328,7 +344,7 @@
 	},
 	"console":
 	{
-		"height": 225.0
+		"height": 280.0
 	},
 	"distraction_free":
 	{
@@ -475,6 +491,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"equation",
 			"matchIterators",
 			"super\\+alt\\+",
 			"super\\+",
@@ -601,8 +618,7 @@
 			"117",
 			"MB3",
 			"<<<<",
-			"sleep",
-			"file"
+			"sleep"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -641,7 +657,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -649,15 +665,15 @@
 					"file": "TypoCheck.py",
 					"settings":
 					{
-						"buffer_size": 6040,
+						"buffer_size": 7313,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5238,
-								5238
+								0,
+								0
 							]
 						],
 						"settings":
@@ -708,7 +724,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1512.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -777,25 +793,25 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 492.0,
+						"translation.y": 961.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "testingFile2",
+					"file": "testingFile",
 					"settings":
 					{
-						"buffer_size": 1006,
+						"buffer_size": 1633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								993,
-								1006
+								0,
+								0
 							]
 						],
 						"settings":
@@ -811,44 +827,44 @@
 				},
 				{
 					"buffer": 2,
-					"file": "tagChecks.py",
+					"file": "testingFile2",
 					"settings":
 					{
-						"buffer_size": 3955,
+						"buffer_size": 1020,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								930,
-								930
+								799,
+								801
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2353.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "extractPhrases.py",
+					"file": "tagChecks.py",
 					"settings":
 					{
-						"buffer_size": 1820,
+						"buffer_size": 4625,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								394,
+								394
 							]
 						],
 						"settings":
@@ -905,53 +921,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
+					"buffer": 4,
+					"file": "patterns.py",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4933,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 140.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Main.sublime-menu",
-					"settings":
-					{
-						"buffer_size": 4999,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3260,
-								3260
+								635,
+								635
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
-						"translation.x": 80.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 309.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -961,15 +951,41 @@
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 1445,
+						"buffer_size": 1429,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1424,
-								1424
+								1069,
+								1069
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 840.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "patterns.py",
+					"settings":
+					{
+						"buffer_size": 4933,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1030,6 +1046,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"CheckTypos/patterns.py"
+			],
 			[
 				"ext",
 				"CheckTypos/extractPhrases.py"

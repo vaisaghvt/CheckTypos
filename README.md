@@ -44,8 +44,7 @@ Currently Checked Patterns
 5. Missing capitalization of first word after full stop
 6. Tilde mark needed before \cite / \ref
 7. Capitalize c in chapter and s in section for references
-8. Too many spaces
-9. Sentence case for subsections and below
+8. Sentence case for subsections and below
 
 Plugin is smart enough to avoid certain tags, environments, etc.
 
