@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"st",
+				"stringAsList"
+			],
+			[
 				"true",
 				"True"
 			],
@@ -143,39 +147,15 @@
 			"file": "TypoCheck.py",
 			"settings":
 			{
-				"buffer_size": 7313,
+				"buffer_size": 7316,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "testingFile",
-			"settings":
-			{
-				"buffer_size": 1676,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 13149,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 772,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "testingFile2",
 			"settings":
 			{
-				"buffer_size": 1020,
+				"buffer_size": 1029,
 				"line_ending": "Unix",
 				"name": "testingFile"
 			}
@@ -184,7 +164,7 @@
 			"file": "tagChecks.py",
 			"settings":
 			{
-				"buffer_size": 5577,
+				"buffer_size": 5589,
 				"line_ending": "Unix"
 			}
 		},
@@ -200,7 +180,23 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 1429,
+				"buffer_size": 1433,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Main.sublime-menu",
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "CheckTypos.sublime-commands",
+			"settings":
+			{
+				"buffer_size": 84,
 				"line_ending": "Unix"
 			}
 		}
@@ -208,9 +204,21 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 49.0,
 		"selected_items":
 		[
+			[
+				"check",
+				"Check Mistakes: Check Current File"
+			],
+			[
+				"ceh",
+				"Check Mistakes: Check Current File"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
 			[
 				"enable",
 				"Package Control: Enable Package"
@@ -221,10 +229,6 @@
 			],
 			[
 				"chec",
-				"Check Typos: Check Current File"
-			],
-			[
-				"check",
 				"Check Typos: Check Current File"
 			],
 			[
@@ -266,10 +270,6 @@
 			[
 				"install",
 				"Package Control: Install Package"
-			],
-			[
-				"Package Control: ",
-				"Package Control: Create Package File"
 			],
 			[
 				"ena",
@@ -380,7 +380,7 @@
 	},
 	"console":
 	{
-		"height": 280.0
+		"height": 183.0
 	},
 	"distraction_free":
 	{
@@ -393,23 +393,25 @@
 	},
 	"file_history":
 	[
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/CheckTypos.sublime-commands",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Linux).sublime-keymap",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Windows).sublime-keymap",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (OSX).sublime-keymap",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/testingFile",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
-		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/CheckTypos.sublime-commands",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Main.sublime-menu",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
-		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Windows).sublime-keymap",
-		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (Linux).sublime-keymap",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/TypoCheck.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/LaTeX.sublime-commands",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/SublimeREPL (OSX).sublime-settings",
-		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Default (OSX).sublime-keymap",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/goto_line.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/extractPhrases.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/README.md",
-		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/patterns.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/tagChecks.py",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/grammarCheck.py",
@@ -529,6 +531,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Typos",
 			"ignored",
 			"check",
 			"packages",
@@ -655,8 +658,7 @@
 			"(<<<<<<< HEAD|=======|>>>>>>> origin/master)",
 			"to",
 			">>>>>>",
-			"connectingArea>116",
-			"<connectingArea>117"
+			"connectingArea>116"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -695,7 +697,6 @@
 	"groups":
 	[
 		{
-			"selected": 9,
 			"sheets":
 			[
 				{
@@ -703,15 +704,15 @@
 					"file": "TypoCheck.py",
 					"settings":
 					{
-						"buffer_size": 7313,
+						"buffer_size": 7316,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								293,
+								293
 							]
 						],
 						"settings":
@@ -769,92 +770,22 @@
 				},
 				{
 					"buffer": 1,
-					"file": "testingFile",
+					"file": "testingFile2",
 					"settings":
 					{
-						"buffer_size": 1676,
+						"buffer_size": 1029,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11,
-								11
+								495,
+								495
 							]
 						],
 						"settings":
 						{
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "testingFile",
-					"settings":
-					{
-						"buffer_size": 1676,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1660,
-								1661
-							]
-						],
-						"settings":
-						{
-							"auto_name": "testingFile",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -865,96 +796,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 13149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3278,
-								3283
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 24.0,
-						"translation.y": 1637.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 772,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "testingFile2",
-					"settings":
-					{
-						"buffer_size": 1020,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								114,
-								114
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "tagChecks.py",
 					"settings":
 					{
-						"buffer_size": 5577,
+						"buffer_size": 5589,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2280,
-								2280
+								2421,
+								2421
 							]
 						],
 						"settings":
@@ -1004,14 +857,14 @@
 							],
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
-						"translation.x": 1.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 1388.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 3,
 					"file": "patterns.py",
 					"settings":
 					{
@@ -1037,19 +890,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 4,
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 1429,
+						"buffer_size": 1433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1069,
-								1069
+								5,
+								10
 							]
 						],
 						"settings":
@@ -1057,13 +910,13 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 840.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 3,
 					"file": "patterns.py",
 					"settings":
 					{
@@ -1081,6 +934,58 @@
 						"settings":
 						{
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Main.sublime-menu",
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								129,
+								129
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "CheckTypos.sublime-commands",
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

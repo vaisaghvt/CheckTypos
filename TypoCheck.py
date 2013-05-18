@@ -33,7 +33,7 @@ def suggestReplacement(match, para, replacementFunction):
 def findBegin(region):
     return region.begin()
 
-class CheckTyposCommand(sublime_plugin.TextCommand):
+class CheckMistakesCommand(sublime_plugin.TextCommand):
 
 
     def run(self, edit):

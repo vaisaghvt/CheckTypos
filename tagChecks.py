@@ -71,14 +71,14 @@ def afterAcronym(match, completeBuffer):
     if match.start()>2:
         char = completeBuffer[match.start()-2]
         if char == '.':
-            string = ''
+            stringAsList = []
             i = match.start() -2
             while completeBuffer[i] != ' ' and i != 0:
-                string = string + completeBuffer[i]
-                i--
+                stringAsList.insert(0, completeBuffer[i])
+                i=i-1
+            string = ''.join(stringAsList)
             if(string.rfind('i.e.')!=-1
-                or string.rfind('e.g.')!=-1
-                or string.rfind('etc.')!=-1):
+                or string.rfind('e.g.')!=-1:
         #        print "returning true"
                 return True
 

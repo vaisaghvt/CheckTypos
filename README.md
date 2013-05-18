@@ -18,7 +18,7 @@ linux   : ctrl + shift + alt + c
 Command in pallete
 ------------------
 
-CheckTypos: Check Current File
+Check Mistakes: Check Current File
 
 Command in menu
 ---------------

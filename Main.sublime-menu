@@ -3,7 +3,7 @@
         "id": "tools",
         "children":
         [
-            {"caption": "Check Typos", "command": "check_typos"}
+            {"caption": "Check Mistakes", "command": "check_mistakes"}
 
         ]
     }
