@@ -5,6 +5,9 @@ def checkPattern(option, match, completeBuffer, phrase):
     if option =='a':
         # print 'checking acronym'
         return isAcronym(phrase)
+    elif option =='b':
+        # print 'checking acronym'
+        return afterAcronym(match, completeBuffer)
     elif option =='c':
         # print 'checking comment'
         return isComment(match, completeBuffer)
@@ -62,6 +65,33 @@ def isAcronym(phrase):
     else :
         return False
 
+def afterAcronym(match, completeBuffer):
+    '''Returns a true if the match is an acronym'''
+#    print "testing if", phrase, "is an acronym"
+    if match.start()>2:
+        char = completeBuffer[match.start()-2]
+        if char == '.':
+            string = ''
+            i = match.start() -2
+            while completeBuffer[i] != ' ' and i != 0:
+                string = string + completeBuffer[i]
+                i--
+            if(string.rfind('i.e.')!=-1
+                or string.rfind('e.g.')!=-1
+                or string.rfind('etc.')!=-1):
+        #        print "returning true"
+                return True
+
+
+    return False
+
+#     if(phrase.rfind('i.e.')!=-1
+#         or phrase.rfind('e.g.')!=-1
+#         or phrase.rfind('etc.')!=-1):
+# #        print "returning true"
+#         return True
+#     else :
+#         return False
 
 def isInCite(phrase):
     '''Returns a true if the match is in Cite'''

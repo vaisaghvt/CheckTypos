@@ -151,8 +151,24 @@
 			"file": "testingFile",
 			"settings":
 			{
-				"buffer_size": 1633,
+				"buffer_size": 1676,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 13149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 772,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -168,7 +184,7 @@
 			"file": "tagChecks.py",
 			"settings":
 			{
-				"buffer_size": 4625,
+				"buffer_size": 5577,
 				"line_ending": "Unix"
 			}
 		},
@@ -176,7 +192,7 @@
 			"file": "patterns.py",
 			"settings":
 			{
-				"buffer_size": 4933,
+				"buffer_size": 4937,
 				"line_ending": "Unix"
 			}
 		},
@@ -192,9 +208,37 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 93.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"chce",
+				"Check Typos: Check Current File"
+			],
+			[
+				"chec",
+				"Check Typos: Check Current File"
+			],
+			[
+				"check",
+				"Check Typos: Check Current File"
+			],
+			[
+				"chcek",
+				"Check Typos: Check Current File"
+			],
+			[
+				"syn py",
+				"Set Syntax: Python"
+			],
+			[
+				"syn pytho",
+				"Set Syntax: Python"
+			],
 			[
 				"syn python",
 				"Set Syntax: Python"
@@ -210,10 +254,6 @@
 			[
 				"disabl",
 				"Package Control: Disable Package"
-			],
-			[
-				"syn py",
-				"Set Syntax: Python"
 			],
 			[
 				"syn mark",
@@ -320,10 +360,6 @@
 				"Package Control: Upgrade/Overwrite All Packages"
 			],
 			[
-				"enable",
-				"Package Control: Enable Package"
-			],
-			[
 				"tr",
 				"Trailing Spaces: Delete Trailing Spaces"
 			],
@@ -340,7 +376,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 561.0
+		"width": 435.0
 	},
 	"console":
 	{
@@ -357,6 +393,8 @@
 	},
 	"file_history":
 	[
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.py",
+		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/CheckTypos.sublime-commands",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/CheckTypos/Main.sublime-menu",
 		"/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/Main.sublime-menu",
@@ -491,6 +529,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ignored",
+			"check",
+			"packages",
+			"phrase",
 			"equation",
 			"matchIterators",
 			"super\\+alt\\+",
@@ -614,11 +656,7 @@
 			"to",
 			">>>>>>",
 			"connectingArea>116",
-			"<connectingArea>117",
-			"117",
-			"MB3",
-			"<<<<",
-			"sleep"
+			"<connectingArea>117"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -657,7 +695,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -734,15 +772,15 @@
 					"file": "testingFile",
 					"settings":
 					{
-						"buffer_size": 1633,
+						"buffer_size": 1676,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1523,
-								1523
+								11,
+								11
 							]
 						],
 						"settings":
@@ -793,7 +831,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 961.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -803,15 +841,15 @@
 					"file": "testingFile",
 					"settings":
 					{
-						"buffer_size": 1633,
+						"buffer_size": 1676,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1660,
+								1661
 							]
 						],
 						"settings":
@@ -827,6 +865,58 @@
 				},
 				{
 					"buffer": 2,
+					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 13149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3278,
+								3283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 24.0,
+						"translation.y": 1637.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/vaisaghvt/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 772,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "testingFile2",
 					"settings":
 					{
@@ -837,8 +927,8 @@
 						"selection":
 						[
 							[
-								799,
-								801
+								114,
+								114
 							]
 						],
 						"settings":
@@ -852,19 +942,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "tagChecks.py",
 					"settings":
 					{
-						"buffer_size": 4625,
+						"buffer_size": 5577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								394,
-								394
+								2280,
+								2280
 							]
 						],
 						"settings":
@@ -912,7 +1002,33 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close"
 							],
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 1.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "patterns.py",
+					"settings":
+					{
+						"buffer_size": 4937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3672,
+								3672
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -921,33 +1037,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "patterns.py",
-					"settings":
-					{
-						"buffer_size": 4933,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								635,
-								635
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 309.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "README.md",
 					"settings":
 					{
@@ -973,11 +1063,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "patterns.py",
 					"settings":
 					{
-						"buffer_size": 4933,
+						"buffer_size": 4937,
 						"regions":
 						{
 						},
@@ -993,7 +1083,7 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 679.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
