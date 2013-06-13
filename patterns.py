@@ -1,12 +1,14 @@
-from string import *
 import re
+from string import upper, lower
+
 
 def titleCase(s):
 
     return re.sub(r"[A-Za-z]+('[A-Za-z]+)?",
-                lambda mo: mo.group(0)[0].upper() +
-                            mo.group(0)[1:].lower(),
-                            s)
+                  lambda mo: mo.group(0)[0].upper() +
+                  mo.group(0)[1:].lower(),
+                  s)
+
 
 def removeSpaceBeforePunctuation(match, para):
     """
@@ -25,20 +27,11 @@ def addSpaceAfterPunctuation(match, para):
         return match.group(2)+" "
 
 
-
 def capitalizeFirst(match, para):
     """ Match   :   Space before punctuation
     Fix     :   Remove space before punctuation"""
 
-    # if match.start() == 0:
-    #     newPara = para[0].upper() + para[match.end()]
-    # else:
-    #     for i in range(match.start(), match.end(), 1):
-    #         if para[i] == ' ':
-    #             newPara = para[0:i + 1] + para[i + 1].upper() + para[i
-    #                 + 2:len(para)]
     return match.group(0).upper()
-
 
 
 def removeExtraSpaces(match, para):
@@ -55,7 +48,6 @@ def addTildeBeforeCite(match, para):
     return "~"+match.group(2)
 
 
-
 def titleCaseFirstWord(match, para):
     """ Match   :   Section reference with 's' not capital in section.
     Fix     :   Capitalize the 's' in section."""
@@ -68,9 +60,9 @@ def convertToTitleCase(match, para):
     Fix     :   Title cased"""
     return titleCase(match.group(0))
 
+
 def convertToSentenceCase(match, para):
     return match.group(0)[0].upper()+match.group(0)[1:].lower()
-
 
 
 def removeRepeatedPhrase(match, para):
@@ -86,26 +78,45 @@ def removeRepeatedPhrase(match, para):
 # Store this in a dictionary with a short hand description, tags and the replacementFunction for the tag
 
 
-patterns = [
+patterns = (
     # r'\\(sub)+section':["ONLY FIRST WORD CAPITALIZED IN SUBSECTIONS", 'c', convertFirstLetterToCapital],
-    {"regex":r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',
-                                                                            "description":'SENTENCE CASE FOR SUBSECTIONS AND BELOW',  "tags":'c',     "function":convertToSentenceCase},
-    {"regex":r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',    "description":'TITLE CASE FOR SECTIONS AND CHAPTERS',  "tags":'c',     "function":convertToTitleCase},
-    {"regex":r'( +)([\.,;:])',          "description":'SPACE BEFORE PUNCTUATION',  "tags":'acehmrfp',     "function":removeSpaceBeforePunctuation},
-    {"regex":r'((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])',        "description":'NO SPACE AFTER PUNCTUATION',"tags":'acehmrfp',     "function":addSpaceAfterPunctuation},
-    {"regex":r'((?<=(\.\s))|(?<=(\n\n))|(?<=\A))[a-z]',    "description":'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
-                                                                                    "tags":'acehmpb',      "function":capitalizeFirst},
-    {"regex":r'(\s*)(?<!~)((\\cite)|(\\ref))',   "description":'TILDE MARK NEEDED BEFORE CITE / REF',
-                                                                                    "tags":'ac',       "function":addTildeBeforeCite},
-    {"regex":r'(chapter)(~\\ref)',          "description":'CAPITALIZE C IN CHAPTER',    "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r'(section)(~\\ref)',          "description":'CAPITALIZE S IN SECTION',   "tags":'c',         "function":titleCaseFirstWord},
-    {"regex":r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
-                                        "description":'REPEATED PHRASE',            "tags":'ce',         "function":removeRepeatedPhrase},
-    ]
-# change too many spaces to be more specific
-# |([A-Z](.*?)[A-Z](.*?))
-# |([A-Z](.*?)[A-Z](.*?))
-# (?<=("description":'))(.*?)(?=')
+    {"regex": r'((?<=(\\subsection\{))|(?<=(\\subsubsection\{))|(?<=(\\paragraph\{))|(?<=(\\subparagraph\{)))(([^A-Z](.*?))|([A-Z](.*?)[A-Z](.*?)))(?=\})',
+     "description": 'SENTENCE CASE FOR SUBSECTIONS AND BELOW',
+     "tags": 'c',
+     "function": convertToSentenceCase},
+    {"regex": r'((?<=(\\section\{))|(?<=(\\chapter\{)))((|(.*) )[a-z].*)(?=\})',
+     "description": 'TITLE CASE FOR SECTIONS AND CHAPTERS',
+     "tags": 'c',
+     "function": convertToTitleCase},
+    {"regex": r'( +)([\.,;:])',
+     "description": 'SPACE BEFORE PUNCTUATION',
+     "tags": 'acehmrfp',
+     "function": removeSpaceBeforePunctuation},
+    {"regex": r'((\.)(?![\s\d\]\}\)]))|([,;:\?\]\)\}])(?=[a-zA-Z0-9])',
+     "description": 'NO SPACE AFTER PUNCTUATION',
+     "tags": 'acehmrfp',
+     "function": addSpaceAfterPunctuation},
+    {"regex": r'((?<=(\.\s))|(?<=(\n\n))|(?<=\A))[a-z]',
+     "description": 'MISSING CAPITALIZATION OF FIRST WORD AFTER FULL STOP',
+     "tags": 'acehmpb',
+     "function": capitalizeFirst},
+    {"regex": r'(\s*)(?<!~)((\\cite)|(\\ref))',
+     "description": 'TILDE MARK NEEDED BEFORE CITE / REF',
+     "tags": 'ac',
+     "function": addTildeBeforeCite},
+    {"regex": r'(chapter)(~\\ref)',
+     "description": 'CAPITALIZE C IN CHAPTER',
+     "tags": 'c',
+     "function": titleCaseFirstWord},
+    {"regex": r'(section)(~\\ref)',
+     "description": 'CAPITALIZE S IN SECTION',
+     "tags": 'c',
+     "function": titleCaseFirstWord},
+    {"regex": r'(?i)((?<=\s)|(?<=^))([A-Za-z][A-Za-z ]*)([^\w\d]+)\2((?=([ \n\.,;]))|(?=$))',
+     "description": 'REPEATED PHRASE',
+     "tags": 'ce',
+     "function": removeRepeatedPhrase},
+)
 
 
 def capitalizeFirstLetter(word):
@@ -117,6 +128,6 @@ def uncapitalizeFirstLetter(word):
 
 
 def notFullyCapital(word):
-    """ Checks whether the word is fully capital. If so , it is likely to be some sort of abbreviation or acronym."""
+    """ Checks whether the word is fully capital. If so ,
+    it is likely to be some sort of abbreviation or acronym."""
     return not word.isupper()
-

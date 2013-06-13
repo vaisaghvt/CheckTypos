@@ -8,8 +8,8 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-Lorem ipsum dolor i.e. sit amet, sdf consectetur~\cite(blah) adipisicing~\ref{blah} a. B elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, poda manda
+Lorem ipsum dolor i.e. sit amet, sdf consectetur~\cite(blah) adipisicing~\ref{blah} a. B elit, sed do eiusmod~\cite{Still:2000tp,Zhou:2010:CMS:1842722.1842725,Gwynne1999741}.
+Tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, poda manda
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse [1, 2]
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non

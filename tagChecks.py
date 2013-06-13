@@ -1,44 +1,49 @@
 import re
 
-def checkPattern(option, match, completeBuffer, phrase):
 
-    if option =='a':
+def checkPattern(option, match, completeBuffer, phrase):
+    # print phrase
+    if option == 'a':
         # print 'checking acronym'
         return isAcronym(phrase)
-    elif option =='b':
+    elif option == 'b':
         # print 'checking acronym'
         return afterAcronym(match, completeBuffer)
-    elif option =='c':
+    elif option == 'c':
         # print 'checking comment'
         return isComment(match, completeBuffer)
-    elif option =='e':
+    elif option == 'e':
         # print 'checking equation'
         return isEquation(match, completeBuffer)
-    elif option =='p':
+    elif option == 'p':
         return isPicture(match, completeBuffer)
-    elif option =='b':
+    elif option == 'b':
         return isTable(match, completeBuffer)
-    elif option =='h':
+    elif option == 'h':
         return isInHyperLink(phrase)
-    elif option =='m':
+    elif option == 'm':
         return isInMail(phrase)
-    elif option =='r':
+    elif option == 'r':
         return isInRefCiteOrLabel(phrase)
-    elif option =='f':
+    elif option == 'f':
         return isLikelyFile(phrase)
+
 
 def isLikelyFile(phrase):
     if re.search(r"(\\input\{.*?\})|(\\bibliography\{.*?\})", phrase) is not None:
         return True
     return False
 
+
 def isInRefCiteOrLabel(phrase):
-    if re.search(r"(\\ref\{.*?\})|(\\label\{.*?\})|(\\cite\{.*?\})", phrase) is not None:
+    # print phrase
+    if re.search(r"(\\ref\{.*?\})|(\\label\{.*?\})|(\\cite\{.*?\})||(\\eqref\{.*?\})", phrase) is not None:
         return True
     return False
 
+
 def isInHyperLink(phrase):
-    phrase=phrase.strip()
+    phrase = phrase.strip()
     if re.search(r"www\..*\.", phrase) is not None:
         return True
 
@@ -49,89 +54,81 @@ def isInHyperLink(phrase):
     #     return True
     return False
 
+
 def isInMail(phrase):
     if re.search(r".*@.*\.", phrase) is not None:
         return True
     return False
 
+
 def isAcronym(phrase):
     '''Returns a true if the match is an acronym'''
 #    print "testing if", phrase, "is an acronym"
-    if(phrase.rfind('i.e.')!=-1
-        or phrase.rfind('e.g.')!=-1
-        or phrase.rfind('etc.')!=-1):
-#        print "returning true"
+    if phrase.rfind('i.e.') != -1 or phrase.rfind('e.g.') != -1 or phrase.rfind('etc.') != -1:
         return True
-    else :
+    else:
         return False
+
 
 def afterAcronym(match, completeBuffer):
     '''Returns a true if the match is an acronym'''
 #    print "testing if", phrase, "is an acronym"
-    if match.start()>2:
+    if match.start() > 2:
         char = completeBuffer[match.start()-2]
         if char == '.':
             stringAsList = []
-            i = match.start() -2
+            i = match.start() - 2
             while completeBuffer[i] != ' ' and i != 0:
                 stringAsList.insert(0, completeBuffer[i])
-                i=i-1
+                i = i-1
             string = ''.join(stringAsList)
-            if(string.rfind('i.e.')!=-1
-                or string.rfind('e.g.')!=-1:
+            if string.rfind('i.e.') != -1 or string.rfind('e.g.') != -1:
         #        print "returning true"
                 return True
-
-
     return False
 
-#     if(phrase.rfind('i.e.')!=-1
-#         or phrase.rfind('e.g.')!=-1
-#         or phrase.rfind('etc.')!=-1):
-# #        print "returning true"
-#         return True
-#     else :
-#         return False
 
 def isInCite(phrase):
     '''Returns a true if the match is in Cite'''
-    if(phrase.rfind(r'\cite')==0):
+    if(phrase.rfind(r'\cite') == 0):
         return True
-    else :
+    else:
         return False
 
 
 def isPicture(match, completeBuffer):
-    end= completeBuffer[0:match.start()].rfind(r'\end{figure}')
-    pos= 0
-    while(end!=-1):
-        pos= end+3
+    end = completeBuffer[0:match.start()].rfind(r'\end{figure}')
+    pos = 0
+    while end != -1:
+        pos = end+3
         # print pos, 'completeBuffer', completeBuffer[pos:match.start()]
-        end= completeBuffer[pos:match.start()].rfind(r'\end{figure}')
+        end = completeBuffer[pos:match.start()].rfind(r'\end{figure}')
         # print '*******'
-    beg=completeBuffer[pos:match.start()].rfind(r'\begin{figure}')
-    if(beg!=-1):
+    beg = completeBuffer[pos:match.start()].rfind(r'\begin{figure}')
+    if(beg != -1):
         return True
     return False
+
 
 def isTable(match, completeBuffer):
-    end= completeBuffer[0:match.start()].rfind(r'\end{table}')
-    pos= 0
-    while(end!=-1):
-        pos= end+3
+    end = completeBuffer[0:match.start()].rfind(r'\end{table}')
+    pos = 0
+    while(end != -1):
+        pos = end+3
         # print pos, 'completeBuffer', completeBuffer[pos:match.start()]
-        end= completeBuffer[pos:match.start()].rfind(r'\end{table}')
+        end = completeBuffer[pos:match.start()].rfind(r'\end{table}')
         # print '*******'
-    beg=completeBuffer[pos:match.start()].rfind(r'\begin{table}')
-    if(beg!=-1):
+    beg = completeBuffer[pos:match.start()].rfind(r'\begin{table}')
+    if beg != -1:
         return True
     return False
 
+
 def isEquation(match, completeBuffer):
-    if(inLineEquation(match,completeBuffer) or inEquationBody(match, completeBuffer)):
-       return True
+    if (inLineEquation(match, completeBuffer) or inEquationBody(match, completeBuffer)):
+        return True
     else:
-       return False
+        return False
 
 
 #Obsolete : to be replaced
