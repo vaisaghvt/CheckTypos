@@ -48,7 +48,7 @@ Currently Checked Patterns
 7. Capitalize c in chapter and s in section for references
 8. Sentence case for subsections and below
 
-The plugin is generallymart enough to avoid certain tags,
+The plugin is generally smart enough to avoid certain tags,
 environments, etc.
 
 
