@@ -3,7 +3,7 @@
         "id": "tools",
         "children":
         [
-            {"caption": "Check Mistakes", "command": "check_mistakes"}
+            {"caption": "Highlight Mistakes", "command": "highlight_mistakes"}
 
         ]
     }

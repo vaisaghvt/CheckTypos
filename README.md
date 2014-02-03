@@ -1,24 +1,26 @@
 CheckTypos
 ==========
 
-Plugin to fix some standard mistakes and typos in plain text or
-latex files. This plugin does not check for spelling mistakes.
+Plugin to highlight some standard mistakes and typos in latex
+files. This plugin does not check for spelling mistakes. Only
+works on latex files.
 
 
 Default key mapping
 -------------------
 
-mac     : ctrl + command + alt + c
+mac     : ctrl + command + alt + h - Highlight Mistakes
 
-windows : ctrl + shift + alt + c
+windows : ctrl + shift + alt + h - Highlight Mistakes
 
-linux   : ctrl + shift + alt + c
+linux   : ctrl + shift + alt + h - Highlight Mistakes
+
 
 
 Command in pallete
 ------------------
 
-Check Mistakes: Check Current File
+Highlight Mistakes: Check Current File
 
 Command in menu
 ---------------
@@ -28,11 +30,11 @@ Tools Menu
 Usage
 -----
 
-Each error is highlighted on the screen and an input panel appears
-at the bottom with a suggested replacement. This suggestion can
-either be accepted or edited. Press "enter (return)" to accept the change.
-Press "esc" to ignore this. The status bar indicates the check
-completion when no more mistakes are left.
+A dot on the gutter bar indicates a line with an error. An
+outline is drawn around each error. Moving the caret
+to the line of error displays the error description in the
+status bar. Errors are determined on save or on running the
+command.
 
 Currently Checked Patterns
 --------------------------
@@ -46,17 +48,9 @@ Currently Checked Patterns
 7. Capitalize c in chapter and s in section for references
 8. Sentence case for subsections and below
 
-Plugin is smart enough to avoid certain tags, environments, etc.
+The plugin is generallymart enough to avoid certain tags,
+environments, etc.
 
-TODO
-----
-
-Being a very early stage there are several problems to fix. Besides
-the need to check all regexes for special situations that I haven't
-thought of:
-
-1. Exit cleanly from typoCheck in the middle of a check. (Hold escape
-key down for now)
 
 
 

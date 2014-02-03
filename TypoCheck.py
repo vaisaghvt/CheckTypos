@@ -6,7 +6,13 @@ import re
 from patterns import patterns
 from tagChecks import checkPattern
 import threading
+import os
+from collections import defaultdict
 
+def syntax_name(view):
+    syntax = os.path.basename(view.settings().get('syntax'))
+    syntax = os.path.splitext(syntax)[0]
+    return syntax
 
 def extractPhrase(match, line):
     """Returns the phrase which was matched. Rather than just the matched pattern, it returns
@@ -25,33 +31,39 @@ def extractPhrase(match, line):
     return line[startCount:endCount]
 
 
-def suggestReplacement(match, para, replacementFunction):
-        """ Calls the replacement function with the right arguments"""
+affectedRegions=defaultdict(list)
 
-        return replacementFunction(match, para)
+def last_selected_lineno(view):
+    viewSel = view.sel()
+    if not viewSel:
+        return None
+    return view.rowcol(viewSel[0].end())[0]
 
+class HighlightMistakesCommand(sublime_plugin.TextCommand):
 
-def findBegin(region):
-    return region.begin()
-
-
-class CheckMistakesCommand(sublime_plugin.TextCommand):
-
-    def run(self, edit):
-        self.currentLocation = -1
-        self.replacementMade = False
-        self.inputLock = threading.Lock()
-        self.user_input_ready = False
+    def __init__(self, view):
+        self.view = view
+        self.regionsToHighlight=[]
         self.myKey = "CheckTypoKey"
-        self.view.erase_status(self.myKey)
-        self.viewMatches = []
-        self.matchIterators = []
-        self.patternList = []
-        self.recalculateMatches()
-        # print(self.completeBuffer)
-        self.mainThread = threading.Thread(target=self.processBuffer)
-        self.mainThread.start()
-        # self.processBuffer([completeBuffer])
+
+    def run_(self, args):
+
+        if syntax_name(self.view) == "LaTeX":
+            # if self.view.id not in affectedRegions or last_selected_lineno(self.view) in affectedRegions[self.view.id]:
+            if not args or "full_test" not in args:
+
+                self.view.erase_status(self.myKey)
+                self.viewMatches = []
+                self.matchIterators = []
+                self.patternList = []
+                self.recalculateMatches()
+                # print(self.completeBuffer)
+                self.mainThread = threading.Thread(target=self.processBuffer)
+                self.mainThread.start()
+                # self.processBuffer([completeBuffer])
+            else:
+                self.displayCurrentError()
+                self.higlightAllRegions()
 
     def recalculateCompleteBuffer(self):
         # print("recalculating buffers")
@@ -71,27 +83,16 @@ class CheckMistakesCommand(sublime_plugin.TextCommand):
             #     # print(regexPattern)
             regex = re.compile(regexPattern)
             viewMatchesFound = self.view.find_all(regexPattern)
-            iteratorOverAllRegexMatchesFound = regex.finditer(self.completeBuffer)
-            count = 0
-            for match in iteratorOverAllRegexMatchesFound:
+
+
+            for count, match in enumerate(regex.finditer(self.completeBuffer)):
                 correspondingView = viewMatchesFound[count]
 
                 regionToRegexMatchAndPatternMapping[correspondingView] = (match, pattern)
                 listOfRegions.append(correspondingView)
-                count = count+1
 
-        listOfRegions = sorted(listOfRegions, key=findBegin)
-        beforeCurrentList = []
-        afterCurrentList = []
-        for region in listOfRegions:
-            if region.begin() < self.currentLocation:
-                beforeCurrentList.append(region)
-            else:
-                afterCurrentList.append(region)
 
-        listOfRegions = []
-        listOfRegions.extend(afterCurrentList)
-        listOfRegions.extend(beforeCurrentList)
+        listOfRegions = sorted(listOfRegions, key=(lambda region: region.begin()))
 
         self.patternList = []
         self.matchIterators = []
@@ -105,59 +106,46 @@ class CheckMistakesCommand(sublime_plugin.TextCommand):
             self.matchIterators.append(matchingRegex)
             self.viewMatches.append(region)
 
-    def getUserInput(self):
-        # print("current suggested replacement"+self.currentReplacement)
-        sublime.active_window().show_input_panel(self.descriptionString, self.currentReplacement, self.on_done, None, self.on_cancel)
-
-    def dealWithIt(self, match, para, replacementFunction):
-        """ Deals with a pattern match. Checks for replacement, displays it for user and asks what to do with
-        it"""
-
-        self.currentReplacement = suggestReplacement(match, para, replacementFunction)
-        sublime.set_timeout(self.getUserInput, 0)
-        # return para, False
-        # else:
-        #     print 'invalid choice'
-
-    def on_done(self, userInput):
-        # print("Done:"+userInput)
-        editObject = self.view.begin_edit()
-        self.view.replace(editObject, self.currentMatchedRegionInView, userInput)
-        self.view.end_edit(editObject)
-        self.recalculateMatches()
-        self.user_input_ready = True
-        self.replacementMade = True
-        self.inputLock.release()
-
-    def on_cancel(self):
-        self.user_input_ready = True
-        self.inputLock.release()
 
     def printStatusMessage(self):
         self.view.erase_status(self.myKey)
         self.view.set_status(self.myKey, self.printStatus)
 
-    def input_is_ready(self):
-        return self.user_input_ready
 
-    def changeSelection(self):
-        self.view.sel().clear()
-        self.view.sel().add(self.currentMatchedRegionInView)
-        self.view.show(self.currentMatchedRegionInView)
+
+    def higlightAllRegions(self):
+        self.view.add_regions("mark", self.regionsToHighlight, "comment", "dot",
+                sublime.DRAW_OUTLINED)
+        for region in self.regionsToHighlight:
+            affectedRegions[self.view.id].append(self.view.rowcol(region.begin())[0])
+
+    def displayCurrentError(self):
+        lineno = last_selected_lineno(self.view)
+        messagesToPrint= []
+        if lineno and self.regionsToHighlight:
+            for region in self.regionsToHighlight:
+                if self.view.rowcol(region.begin())[0] == lineno:
+                    messagesToPrint.append(self.descriptionStringList[region.begin()])
+
+
+        if messagesToPrint:
+            self.printStatus = "; ".join(messagesToPrint)
+            self.printStatusMessage()
+        else:
+            self.printStatus = "Possible errors found"
+            self.printStatusMessage()
 
     def processBuffer(self):
         problemsFound = False
-        self.user_input_ready = False
-        self.inputLock.acquire(True)
+
 
         tagExceptionMatch = False
-
+        self.regionsToHighlight =[]
+        self.descriptionStringList ={}
         while len(self.viewMatches) > 0:
             regexMatch = self.matchIterators.pop(0)
             self.currentMatchedRegionInView = self.viewMatches.pop(0)
             pattern = self.patternList.pop(0)
-            self.currentLocation = self.currentMatchedRegionInView.begin()
-
             for option in pattern["tags"]:
                 phrase = extractPhrase(regexMatch, self.completeBuffer)
                 if checkPattern(option, regexMatch, self.completeBuffer, phrase):
@@ -168,23 +156,41 @@ class CheckMistakesCommand(sublime_plugin.TextCommand):
                 tagExceptionMatch = False
                 continue
             problemsFound = True
-            sublime.set_timeout(self.changeSelection, 0)
-            # print 'Problem: ', pattern["description"]
-            #      # '; Para', index+1
-            # print 'Phrase: ', extractPhrase(regexMatch, self.completeBuffer)
-            # print self.currentMatchedRegionInView
+            self.regionsToHighlight.append(self.currentMatchedRegionInView)
 
-            # print "context: ",para
-            self.descriptionString = pattern["description"]
+            lineno = self.currentMatchedRegionInView.begin()
 
-            self.dealWithIt(regexMatch, self.completeBuffer, pattern["function"])
-            self.inputLock.acquire(True)
-            # sublime.set_timeout(self.recalculateMatches,0)
-        # print("done")
+            self.descriptionStringList[lineno]= pattern["description"]
+
         if not problemsFound:
             self.printStatus = 'No mistakes found. Good Stuff!'
+            sublime.set_timeout(self.higlightAllRegions, 0)
+            sublime.set_timeout(self.printStatusMessage, 0)
         else:
-            self.printStatus = 'Typo check complete'
-        sublime.set_timeout(self.printStatusMessage, 0)
-        #     saveChanges(paragraphs, fileName)
-        #     problemsFound = False
+            sublime.set_timeout(self.higlightAllRegions, 0)
+            sublime.set_timeout(self.displayCurrentError, 0)
+
+class BackgroundLinter(sublime_plugin.EventListener):
+    '''This plugin controls a linter meant to work in the background
+    to provide interactive feedback as a file is edited. It can be
+    turned off via a setting.
+    '''
+
+    def __init__(self):
+        super(BackgroundLinter, self).__init__()
+        self.lastSelectedLineNo = -1
+
+
+    def on_post_save(self, view):
+        view.run_command("highlight_mistakes")
+
+    def on_load(self, view):
+        view.run_command("highlight_mistakes")
+    # def on_selection_modified(self, view):
+    #     if view.is_scratch():
+    #         return
+
+    def on_selection_modified(self, view):
+        # pass
+        view.run_command("highlight_mistakes", "full_test")
+        # view.run_command("highlight_mistakes")
