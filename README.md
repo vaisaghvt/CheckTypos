@@ -9,11 +9,11 @@ works on latex files.
 Default key mapping
 -------------------
 
-mac     : ctrl + command + alt + h - Highlight Mistakes
+mac     : ctrl + command + alt + c - Highlight Mistakes
 
-windows : ctrl + shift + alt + h - Highlight Mistakes
+windows : ctrl + shift + alt + c - Highlight Mistakes
 
-linux   : ctrl + shift + alt + h - Highlight Mistakes
+linux   : ctrl + shift + alt + c - Highlight Mistakes
 
 
 
