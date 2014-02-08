@@ -5,6 +5,8 @@ Plugin to highlight some standard mistakes and typos in latex
 files. This plugin does not check for spelling mistakes. Only
 works on latex files.
 
+The Sublime Text 3 version is a [separate repository](https://github.com/vaisaghvt/CheckTypos3)
+
 
 Default key mapping
 -------------------
